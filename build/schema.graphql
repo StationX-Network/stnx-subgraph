@@ -9,6 +9,18 @@ type Station @entity {
   imageUrl: String! #string
   isGtTransferable: Boolean! # bool
   isGovernanceActive: Boolean!
+  membersCount: BigInt!
+  timeStamp: BigInt!
+  totalAmountRaised: BigInt!
+  distributionAmount: BigInt!
+  pricePerToken: BigInt!
+  quorum: BigInt!
+  threshold: BigInt!
+  raiseAmount: BigInt!
+  minDepositAmount: BigInt!
+  maxDepositAmount: BigInt!
+  depositDeadline: BigInt!
+  maxTokensPerUser: BigInt!
 }
 
 type User @entity {

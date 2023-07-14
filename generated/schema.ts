@@ -122,6 +122,114 @@ export class Station extends Entity {
   set isGovernanceActive(value: boolean) {
     this.set("isGovernanceActive", Value.fromBoolean(value));
   }
+
+  get membersCount(): BigInt {
+    let value = this.get("membersCount");
+    return value!.toBigInt();
+  }
+
+  set membersCount(value: BigInt) {
+    this.set("membersCount", Value.fromBigInt(value));
+  }
+
+  get timeStamp(): BigInt {
+    let value = this.get("timeStamp");
+    return value!.toBigInt();
+  }
+
+  set timeStamp(value: BigInt) {
+    this.set("timeStamp", Value.fromBigInt(value));
+  }
+
+  get totalAmountRaised(): BigInt {
+    let value = this.get("totalAmountRaised");
+    return value!.toBigInt();
+  }
+
+  set totalAmountRaised(value: BigInt) {
+    this.set("totalAmountRaised", Value.fromBigInt(value));
+  }
+
+  get distributionAmount(): BigInt {
+    let value = this.get("distributionAmount");
+    return value!.toBigInt();
+  }
+
+  set distributionAmount(value: BigInt) {
+    this.set("distributionAmount", Value.fromBigInt(value));
+  }
+
+  get pricePerToken(): BigInt {
+    let value = this.get("pricePerToken");
+    return value!.toBigInt();
+  }
+
+  set pricePerToken(value: BigInt) {
+    this.set("pricePerToken", Value.fromBigInt(value));
+  }
+
+  get quorum(): BigInt {
+    let value = this.get("quorum");
+    return value!.toBigInt();
+  }
+
+  set quorum(value: BigInt) {
+    this.set("quorum", Value.fromBigInt(value));
+  }
+
+  get threshold(): BigInt {
+    let value = this.get("threshold");
+    return value!.toBigInt();
+  }
+
+  set threshold(value: BigInt) {
+    this.set("threshold", Value.fromBigInt(value));
+  }
+
+  get raiseAmount(): BigInt {
+    let value = this.get("raiseAmount");
+    return value!.toBigInt();
+  }
+
+  set raiseAmount(value: BigInt) {
+    this.set("raiseAmount", Value.fromBigInt(value));
+  }
+
+  get minDepositAmount(): BigInt {
+    let value = this.get("minDepositAmount");
+    return value!.toBigInt();
+  }
+
+  set minDepositAmount(value: BigInt) {
+    this.set("minDepositAmount", Value.fromBigInt(value));
+  }
+
+  get maxDepositAmount(): BigInt {
+    let value = this.get("maxDepositAmount");
+    return value!.toBigInt();
+  }
+
+  set maxDepositAmount(value: BigInt) {
+    this.set("maxDepositAmount", Value.fromBigInt(value));
+  }
+
+  get depositDeadline(): BigInt {
+    let value = this.get("depositDeadline");
+    return value!.toBigInt();
+  }
+
+  set depositDeadline(value: BigInt) {
+    this.set("depositDeadline", Value.fromBigInt(value));
+  }
+
+  get maxTokensPerUser(): BigInt {
+    let value = this.get("maxTokensPerUser");
+    return value!.toBigInt();
+  }
+
+  set maxTokensPerUser(value: BigInt) {
+    this.set("maxTokensPerUser", Value.fromBigInt(value));
+  }
 }
 
 export class User extends Entity {

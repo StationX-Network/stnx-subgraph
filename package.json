@@ -4,9 +4,9 @@
   "scripts": {
     "codegen": "graph codegen",
     "build": "graph build",
-    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ subham7/stnx3",
-    "create-local": "graph create --node http://localhost:8020/ subham7/stnx3",
-    "remove-local": "graph remove --node http://localhost:8020/ subham7/stnx3",
+    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ subham7/stnx-be-polygon",
+    "create-local": "graph create --node http://localhost:8020/ subham7/stnx-be-polygon",
+    "remove-local": "graph remove --node http://localhost:8020/ subham7/stnx-be-polygon",
     "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 subham7/stnx3",
     "test": "graph test"
   },
@@ -14,5 +14,7 @@
     "@graphprotocol/graph-cli": "0.33.0",
     "@graphprotocol/graph-ts": "0.27.0"
   },
-  "devDependencies": { "matchstick-as": "0.5.0" }
+  "devDependencies": {
+    "matchstick-as": "0.5.0"
+  }
 }
