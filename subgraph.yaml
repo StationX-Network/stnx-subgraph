@@ -4,10 +4,10 @@ schema:
 dataSources:
   - kind: ethereum
     name: StnxEmitter
-    network: matic
+    network: goerli
     source:
-      address: "0x984368cC53e79E9CBC3B60b8526FfE66855E8125"
-      # startBlock: 42852562
+      address: "0x13995BaEDB160604f8442A013839CcEDadCE7EC8"
+      startBlock: 9214684
       abi: StnxEmitter
     mapping:
       kind: ethereum/events
