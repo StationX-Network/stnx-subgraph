@@ -6,8 +6,8 @@ dataSources:
     name: StnxEmitter
     network: goerli
     source:
-      address: "0x13995BaEDB160604f8442A013839CcEDadCE7EC8"
-      startBlock: 9042347
+      address: "0xCf015a7d13F136cAAb8B354CE904724D9dD42eCA"
+      startBlock: 10360896
       abi: StnxEmitter
     mapping:
       kind: ethereum/events

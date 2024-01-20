@@ -21,6 +21,7 @@ type Station @entity {
   maxDepositAmount: BigInt!
   depositDeadline: BigInt!
   maxTokensPerUser: BigInt!
+  depositTokenAddress: String!
 }
 
 type User @entity {
