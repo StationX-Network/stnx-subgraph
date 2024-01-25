@@ -31,6 +31,9 @@ export function createErc20Dao(event: CreateDaoErc20Event): void {
   station.maxDepositAmount = event.params.maxDeposit
   station.depositDeadline = event.params._days
   station.maxTokensPerUser = BigInt.fromI32(0)
+  station.depositTokenAddress = event.params.depositTokenAddress
+    ? event.params.depositTokenAddress.toHex()
+    : ""
   station.save()
 }
 
@@ -59,5 +62,8 @@ export function createErc721Dao(event: CreateDaoErc721Event): void {
   station.maxDepositAmount = BigInt.fromI32(0)
   station.depositDeadline = event.params._days
   station.maxTokensPerUser = event.params.maxTokensPerUser
+  station.depositTokenAddress = event.params.depositTokenAddress
+    ? event.params.depositTokenAddress.toHex()
+    : ""
   station.save()
 }

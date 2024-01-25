@@ -230,6 +230,15 @@ export class Station extends Entity {
   set maxTokensPerUser(value: BigInt) {
     this.set("maxTokensPerUser", Value.fromBigInt(value));
   }
+
+  get depositTokenAddress(): string {
+    let value = this.get("depositTokenAddress");
+    return value!.toString();
+  }
+
+  set depositTokenAddress(value: string) {
+    this.set("depositTokenAddress", Value.fromString(value));
+  }
 }
 
 export class User extends Entity {
