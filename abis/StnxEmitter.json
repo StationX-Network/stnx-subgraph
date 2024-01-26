@@ -61,6 +61,31 @@
       {
         "indexed": true,
         "internalType": "address",
+        "name": "refundModule",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "daoAddress",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "bytes32",
+        "name": "newMerkleRoot",
+        "type": "bytes32"
+      }
+    ],
+    "name": "ChangeRefundModuleMerkleRoot",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
         "name": "_proxy",
         "type": "address"
       },
@@ -72,6 +97,25 @@
       }
     ],
     "name": "CloseDeposit",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "dao",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256[]",
+        "name": "chainIds",
+        "type": "uint256[]"
+      }
+    ],
+    "name": "CreateCCDAO",
     "type": "event"
   },
   {
@@ -165,6 +209,12 @@
         "indexed": false,
         "internalType": "address",
         "name": "gnosisAddress",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "lzImpl",
         "type": "address"
       },
       {
@@ -284,6 +334,12 @@
       },
       {
         "indexed": false,
+        "internalType": "address",
+        "name": "lzImpl",
+        "type": "address"
+      },
+      {
+        "indexed": false,
         "internalType": "bool",
         "name": "isGovernanceActive",
         "type": "bool"
@@ -333,6 +389,37 @@
       }
     ],
     "name": "DefineContracts",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "_refundModule",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "_safe",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "_dao",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "bytes32",
+        "name": "_merkleRoot",
+        "type": "bytes32"
+      }
+    ],
+    "name": "DeployRefundModule",
     "type": "event"
   },
   {
@@ -397,12 +484,6 @@
         "indexed": true,
         "internalType": "address",
         "name": "_ERC721Implementation",
-        "type": "address"
-      },
-      {
-        "indexed": false,
-        "internalType": "address",
-        "name": "_wrappedTokenAddress",
         "type": "address"
       },
       {
@@ -537,6 +618,141 @@
       }
     ],
     "name": "NewUser",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "_daoAddress",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "_depositor",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "_depositTokenAddress",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "_depositTokenAmount",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "_timeStamp",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "_gtToken",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "bool",
+        "name": "_isAdmin",
+        "type": "bool"
+      }
+    ],
+    "name": "NewUserCC",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "_user",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "_dao",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "_refundModule",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "_transferToken",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "_burnAmount",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "_transferAmount",
+        "type": "uint256"
+      }
+    ],
+    "name": "RefundERC20DAO",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "_user",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "_dao",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "_refundModule",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "_transferToken",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "_tokenId",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "_transferAmount",
+        "type": "uint256"
+      }
+    ],
+    "name": "RefundERC721DAO",
     "type": "event"
   },
   {
@@ -992,6 +1208,29 @@
     "inputs": [
       {
         "internalType": "address",
+        "name": "_refundModule",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_daoAddress",
+        "type": "address"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "newMerkleRoot",
+        "type": "bytes32"
+      }
+    ],
+    "name": "changeRefundModuleMerkleRoot",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
         "name": "_proxy",
         "type": "address"
       },
@@ -1002,6 +1241,24 @@
       }
     ],
     "name": "closeDeposit",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_dao",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "_chainIds",
+        "type": "uint256[]"
+      }
+    ],
+    "name": "createCCDao",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -1070,17 +1327,22 @@
       },
       {
         "internalType": "address",
-        "name": "_emitter",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
         "name": "_depositTokenAddress",
         "type": "address"
       },
       {
         "internalType": "address",
+        "name": "_emitter",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
         "name": "_gnosisAddress",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "lzImpl",
         "type": "address"
       },
       {
@@ -1182,6 +1444,11 @@
         "type": "address"
       },
       {
+        "internalType": "address",
+        "name": "lzImpl",
+        "type": "address"
+      },
+      {
         "internalType": "bool",
         "name": "_isGovernanceActive",
         "type": "bool"
@@ -1223,6 +1490,34 @@
     "name": "defineContracts",
     "outputs": [],
     "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_refundModule",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_safe",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_dao",
+        "type": "address"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "_merkleRoot",
+        "type": "bytes32"
+      }
+    ],
+    "name": "deployRefundModule",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
@@ -1356,11 +1651,6 @@
       },
       {
         "internalType": "address",
-        "name": "_wrappedTokenAddress",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
         "name": "_factory",
         "type": "address"
       }
@@ -1460,6 +1750,125 @@
       }
     ],
     "name": "newUser",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_daoAddress",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_depositor",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_depositTokenAddress",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_depositTokenAmount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_timeStamp",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_gtToken",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bool",
+        "name": "_isAdmin",
+        "type": "bool"
+      }
+    ],
+    "name": "newUserCC",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_user",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_dao",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_refundModule",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_transferToken",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_burnAmount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_transferAmount",
+        "type": "uint256"
+      }
+    ],
+    "name": "refundERC20DAO",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_user",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_dao",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_refundModule",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_transferToken",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_tokenId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_transferAmount",
+        "type": "uint256"
+      }
+    ],
+    "name": "refundERC721DAO",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

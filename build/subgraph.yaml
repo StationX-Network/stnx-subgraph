@@ -4,10 +4,10 @@ schema:
 dataSources:
   - kind: ethereum
     name: StnxEmitter
-    network: goerli
+    network: matic
     source:
-      address: "0xCf015a7d13F136cAAb8B354CE904724D9dD42eCA"
-      startBlock: 10360896
+      address: "0x17f251Afb0f1b47d47d50F2a5f2dcB72B12c06BC"
+      startBlock: 52497857
       abi: StnxEmitter
     mapping:
       kind: ethereum/events
@@ -21,10 +21,10 @@ dataSources:
           file: StnxEmitter/abis/StnxEmitter.json
       eventHandlers:
         - event: CreateDaoErc20(indexed address,indexed
-            address,string,string,uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint256,address,address,address,bool,bool,bool)
+            address,string,string,uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint256,address,address,address,address,bool,bool,bool)
           handler: handleCreateDaoErc20
         - event: CreateDaoErc721(indexed address,indexed
-            address,string,string,string,uint256,uint256,uint256,uint256,uint256,uint256,uint256,address,address,address,bool,bool,bool)
+            address,string,string,string,uint256,uint256,uint256,uint256,uint256,uint256,uint256,address,address,address,address,bool,bool,bool)
           handler: handleCreateDaoErc721
         - event: NewUser(indexed address,indexed address,indexed
             address,uint256,uint256,uint256,bool)

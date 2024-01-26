@@ -36,7 +36,8 @@ export function createNewUser(event: NewUserEvent): void {
 
   // Update members count & totalAmountRaised in station
   station.membersCount = station.membersCount.plus(BigInt.fromI32(1))
-  station.totalAmountRaised = station.totalAmountRaised
-    .plus(event.params._depositTokenAmount)
+  station.totalAmountRaised = station.totalAmountRaised.plus(
+    event.params._depositTokenAmount
+  )
   station.save()
 }
