@@ -4,10 +4,10 @@ schema:
 dataSources:
   - kind: ethereum
     name: StnxEmitter
-    network: goerli
+    network: matic
     source:
-      address: "0xCf015a7d13F136cAAb8B354CE904724D9dD42eCA"
-      startBlock: 10360896
+      address: "0xE313ce03ca26F4AFb3F81160Cd6E3BDA1373981E"
+      startBlock: 42852563
       abi: StnxEmitter
     mapping:
       kind: ethereum/events
@@ -30,4 +30,6 @@ dataSources:
           handler: handlePricePerToken
         - event: UpdateDistributionAmount(indexed address,uint256)
           handler: handleDisributionAmount
+        - event: Deposited(indexed address,indexed address,indexed address,uint256,uint256,uint256,uint256)
+          handler: handleDeposit
       file: ./src/stnx-emitter.ts

@@ -35,3 +35,14 @@ type User @entity {
   gtAmount: BigInt! # uint256
   isAdmin: Boolean! # bool
 }
+
+type Deposit @entity {
+  id: ID!
+  daoAddress: Bytes!
+  depositor: Bytes!
+  depositTokenAddress: Bytes!
+  amount: BigInt!
+  timeStamp: BigInt!
+  ownerFee: BigInt!
+  adminShare: BigInt!
+}
