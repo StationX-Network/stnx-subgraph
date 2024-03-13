@@ -2,12 +2,12 @@ import {
   CreateDaoErc20 as CreateDaoErc20Event,
   CreateDaoErc721 as CreateDaoErc721Event,
   NewUser as NewUserEvent,
-  UpdatePricePerToken as UpdatePricePerTokenEvent,
   UpdateDistributionAmount as UpdateDistributionAmountEvent,
+  UpdatePricePerToken as UpdatePricePerTokenEvent,
 } from "../generated/StnxEmitter/StnxEmitter"
 import { createErc20Dao, createErc721Dao } from "./createDao"
+import { updateDistributionAmount, updatePricePerToken } from "./updateRaise"
 import { createNewUser } from "./user"
-import { updatePricePerToken, updateDistributionAmount } from "./updateRaise"
 
 export function handleCreateDaoErc20(event: CreateDaoErc20Event): void {
   createErc20Dao(event)

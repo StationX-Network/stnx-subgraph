@@ -1091,64 +1091,30 @@
   {
     "inputs": [],
     "name": "DEFAULT_ADMIN_ROLE",
-    "outputs": [
-      {
-        "internalType": "bytes32",
-        "name": "",
-        "type": "bytes32"
-      }
-    ],
+    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [],
     "name": "EMITTER",
-    "outputs": [
-      {
-        "internalType": "bytes32",
-        "name": "",
-        "type": "bytes32"
-      }
-    ],
+    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [],
     "name": "FACTORY",
-    "outputs": [
-      {
-        "internalType": "bytes32",
-        "name": "",
-        "type": "bytes32"
-      }
-    ],
+    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      {
-        "internalType": "address",
-        "name": "_proxy",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "_token",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "_to",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-      }
+      { "internalType": "address", "name": "_proxy", "type": "address" },
+      { "internalType": "address", "name": "_token", "type": "address" },
+      { "internalType": "address", "name": "_to", "type": "address" },
+      { "internalType": "uint256", "name": "_amount", "type": "uint256" }
     ],
     "name": "airDropToken",
     "outputs": [],
@@ -1170,11 +1136,7 @@
   },
   {
     "inputs": [
-      {
-        "internalType": "address",
-        "name": "_newFactory",
-        "type": "address"
-      }
+      { "internalType": "address", "name": "_newFactory", "type": "address" }
     ],
     "name": "changeFactory",
     "outputs": [],
@@ -1183,21 +1145,9 @@
   },
   {
     "inputs": [
-      {
-        "internalType": "address",
-        "name": "factory",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "daoAddress",
-        "type": "address"
-      },
-      {
-        "internalType": "bytes32",
-        "name": "newMerkleRoot",
-        "type": "bytes32"
-      }
+      { "internalType": "address", "name": "factory", "type": "address" },
+      { "internalType": "address", "name": "daoAddress", "type": "address" },
+      { "internalType": "bytes32", "name": "newMerkleRoot", "type": "bytes32" }
     ],
     "name": "changeMerkleRoot",
     "outputs": [],
@@ -1206,21 +1156,9 @@
   },
   {
     "inputs": [
-      {
-        "internalType": "address",
-        "name": "_refundModule",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "_daoAddress",
-        "type": "address"
-      },
-      {
-        "internalType": "bytes32",
-        "name": "newMerkleRoot",
-        "type": "bytes32"
-      }
+      { "internalType": "address", "name": "_refundModule", "type": "address" },
+      { "internalType": "address", "name": "_daoAddress", "type": "address" },
+      { "internalType": "bytes32", "name": "newMerkleRoot", "type": "bytes32" }
     ],
     "name": "changeRefundModuleMerkleRoot",
     "outputs": [],
@@ -1229,16 +1167,8 @@
   },
   {
     "inputs": [
-      {
-        "internalType": "address",
-        "name": "_proxy",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_closeTime",
-        "type": "uint256"
-      }
+      { "internalType": "address", "name": "_proxy", "type": "address" },
+      { "internalType": "uint256", "name": "_closeTime", "type": "uint256" }
     ],
     "name": "closeDeposit",
     "outputs": [],
@@ -1247,16 +1177,8 @@
   },
   {
     "inputs": [
-      {
-        "internalType": "address",
-        "name": "_dao",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256[]",
-        "name": "_chainIds",
-        "type": "uint256[]"
-      }
+      { "internalType": "address", "name": "_dao", "type": "address" },
+      { "internalType": "uint256[]", "name": "_chainIds", "type": "uint256[]" }
     ],
     "name": "createCCDao",
     "outputs": [],
@@ -1270,21 +1192,9 @@
         "name": "_deployerAddress",
         "type": "address"
       },
-      {
-        "internalType": "address",
-        "name": "_proxy",
-        "type": "address"
-      },
-      {
-        "internalType": "string",
-        "name": "_name",
-        "type": "string"
-      },
-      {
-        "internalType": "string",
-        "name": "_symbol",
-        "type": "string"
-      },
+      { "internalType": "address", "name": "_proxy", "type": "address" },
+      { "internalType": "string", "name": "_name", "type": "string" },
+      { "internalType": "string", "name": "_symbol", "type": "string" },
       {
         "internalType": "uint256",
         "name": "_distributionAmount",
@@ -1295,71 +1205,27 @@
         "name": "_pricePerToken",
         "type": "uint256"
       },
-      {
-        "internalType": "uint256",
-        "name": "_minDeposit",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_maxDeposit",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_ownerFee",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_totalDays",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_quorum",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_threshold",
-        "type": "uint256"
-      },
+      { "internalType": "uint256", "name": "_minDeposit", "type": "uint256" },
+      { "internalType": "uint256", "name": "_maxDeposit", "type": "uint256" },
+      { "internalType": "uint256", "name": "_ownerFee", "type": "uint256" },
+      { "internalType": "uint256", "name": "_totalDays", "type": "uint256" },
+      { "internalType": "uint256", "name": "_quorum", "type": "uint256" },
+      { "internalType": "uint256", "name": "_threshold", "type": "uint256" },
       {
         "internalType": "address",
         "name": "_depositTokenAddress",
         "type": "address"
       },
-      {
-        "internalType": "address",
-        "name": "_emitter",
-        "type": "address"
-      },
+      { "internalType": "address", "name": "_emitter", "type": "address" },
       {
         "internalType": "address",
         "name": "_gnosisAddress",
         "type": "address"
       },
-      {
-        "internalType": "address",
-        "name": "lzImpl",
-        "type": "address"
-      },
-      {
-        "internalType": "bool",
-        "name": "_isGovernanceActive",
-        "type": "bool"
-      },
-      {
-        "internalType": "bool",
-        "name": "isTransferable",
-        "type": "bool"
-      },
-      {
-        "internalType": "bool",
-        "name": "assetsStoredOnGnosis",
-        "type": "bool"
-      }
+      { "internalType": "address", "name": "lzImpl", "type": "address" },
+      { "internalType": "bool", "name": "_isGovernanceActive", "type": "bool" },
+      { "internalType": "bool", "name": "isTransferable", "type": "bool" },
+      { "internalType": "bool", "name": "assetsStoredOnGnosis", "type": "bool" }
     ],
     "name": "createDaoErc20",
     "outputs": [],
@@ -1373,26 +1239,10 @@
         "name": "_deployerAddress",
         "type": "address"
       },
-      {
-        "internalType": "address",
-        "name": "_proxy",
-        "type": "address"
-      },
-      {
-        "internalType": "string",
-        "name": "_name",
-        "type": "string"
-      },
-      {
-        "internalType": "string",
-        "name": "_symbol",
-        "type": "string"
-      },
-      {
-        "internalType": "string",
-        "name": "_tokenURI",
-        "type": "string"
-      },
+      { "internalType": "address", "name": "_proxy", "type": "address" },
+      { "internalType": "string", "name": "_name", "type": "string" },
+      { "internalType": "string", "name": "_symbol", "type": "string" },
+      { "internalType": "string", "name": "_tokenURI", "type": "string" },
       {
         "internalType": "uint256",
         "name": "_pricePerToken",
@@ -1408,61 +1258,25 @@
         "name": "_maxTokensPerUser",
         "type": "uint256"
       },
-      {
-        "internalType": "uint256",
-        "name": "_ownerFee",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_totalDays",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_quorum",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_threshold",
-        "type": "uint256"
-      },
+      { "internalType": "uint256", "name": "_ownerFee", "type": "uint256" },
+      { "internalType": "uint256", "name": "_totalDays", "type": "uint256" },
+      { "internalType": "uint256", "name": "_quorum", "type": "uint256" },
+      { "internalType": "uint256", "name": "_threshold", "type": "uint256" },
       {
         "internalType": "address",
         "name": "_depositTokenAddress",
         "type": "address"
       },
-      {
-        "internalType": "address",
-        "name": "_emitter",
-        "type": "address"
-      },
+      { "internalType": "address", "name": "_emitter", "type": "address" },
       {
         "internalType": "address",
         "name": "_gnosisAddress",
         "type": "address"
       },
-      {
-        "internalType": "address",
-        "name": "lzImpl",
-        "type": "address"
-      },
-      {
-        "internalType": "bool",
-        "name": "_isGovernanceActive",
-        "type": "bool"
-      },
-      {
-        "internalType": "bool",
-        "name": "isTransferable",
-        "type": "bool"
-      },
-      {
-        "internalType": "bool",
-        "name": "assetsStoredOnGnosis",
-        "type": "bool"
-      }
+      { "internalType": "address", "name": "lzImpl", "type": "address" },
+      { "internalType": "bool", "name": "_isGovernanceActive", "type": "bool" },
+      { "internalType": "bool", "name": "isTransferable", "type": "bool" },
+      { "internalType": "bool", "name": "assetsStoredOnGnosis", "type": "bool" }
     ],
     "name": "createDaoErc721",
     "outputs": [],
@@ -1494,26 +1308,10 @@
   },
   {
     "inputs": [
-      {
-        "internalType": "address",
-        "name": "_refundModule",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "_safe",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "_dao",
-        "type": "address"
-      },
-      {
-        "internalType": "bytes32",
-        "name": "_merkleRoot",
-        "type": "bytes32"
-      }
+      { "internalType": "address", "name": "_refundModule", "type": "address" },
+      { "internalType": "address", "name": "_safe", "type": "address" },
+      { "internalType": "address", "name": "_dao", "type": "address" },
+      { "internalType": "bytes32", "name": "_merkleRoot", "type": "bytes32" }
     ],
     "name": "deployRefundModule",
     "outputs": [],
@@ -1522,41 +1320,17 @@
   },
   {
     "inputs": [
-      {
-        "internalType": "address",
-        "name": "_daoAddress",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "_depositor",
-        "type": "address"
-      },
+      { "internalType": "address", "name": "_daoAddress", "type": "address" },
+      { "internalType": "address", "name": "_depositor", "type": "address" },
       {
         "internalType": "address",
         "name": "_depositTokenAddress",
         "type": "address"
       },
-      {
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_timestamp",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_ownerFee",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_adminShare",
-        "type": "uint256"
-      }
+      { "internalType": "uint256", "name": "_amount", "type": "uint256" },
+      { "internalType": "uint256", "name": "_timestamp", "type": "uint256" },
+      { "internalType": "uint256", "name": "_ownerFee", "type": "uint256" },
+      { "internalType": "uint256", "name": "_adminShare", "type": "uint256" }
     ],
     "name": "deposited",
     "outputs": [],
@@ -1566,47 +1340,23 @@
   {
     "inputs": [],
     "name": "factoryAddress",
-    "outputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
-    ],
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      {
-        "internalType": "bytes32",
-        "name": "role",
-        "type": "bytes32"
-      }
+      { "internalType": "bytes32", "name": "role", "type": "bytes32" }
     ],
     "name": "getRoleAdmin",
-    "outputs": [
-      {
-        "internalType": "bytes32",
-        "name": "",
-        "type": "bytes32"
-      }
-    ],
+    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      {
-        "internalType": "bytes32",
-        "name": "role",
-        "type": "bytes32"
-      },
-      {
-        "internalType": "address",
-        "name": "account",
-        "type": "address"
-      }
+      { "internalType": "bytes32", "name": "role", "type": "bytes32" },
+      { "internalType": "address", "name": "account", "type": "address" }
     ],
     "name": "grantRole",
     "outputs": [],
@@ -1615,25 +1365,11 @@
   },
   {
     "inputs": [
-      {
-        "internalType": "bytes32",
-        "name": "role",
-        "type": "bytes32"
-      },
-      {
-        "internalType": "address",
-        "name": "account",
-        "type": "address"
-      }
+      { "internalType": "bytes32", "name": "role", "type": "bytes32" },
+      { "internalType": "address", "name": "account", "type": "address" }
     ],
     "name": "hasRole",
-    "outputs": [
-      {
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-      }
-    ],
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
     "stateMutability": "view",
     "type": "function"
   },
@@ -1649,11 +1385,7 @@
         "name": "_ERC721Implementation",
         "type": "address"
       },
-      {
-        "internalType": "address",
-        "name": "_factory",
-        "type": "address"
-      }
+      { "internalType": "address", "name": "_factory", "type": "address" }
     ],
     "name": "initialize",
     "outputs": [],
@@ -1662,16 +1394,8 @@
   },
   {
     "inputs": [
-      {
-        "internalType": "address",
-        "name": "_proxy",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256[]",
-        "name": "_amount",
-        "type": "uint256[]"
-      },
+      { "internalType": "address", "name": "_proxy", "type": "address" },
+      { "internalType": "uint256[]", "name": "_amount", "type": "uint256[]" },
       {
         "internalType": "address[]",
         "name": "_userAddress",
@@ -1685,26 +1409,14 @@
   },
   {
     "inputs": [
-      {
-        "internalType": "address",
-        "name": "_to",
-        "type": "address"
-      },
+      { "internalType": "address", "name": "_to", "type": "address" },
       {
         "internalType": "address",
         "name": "_implementation",
         "type": "address"
       },
-      {
-        "internalType": "string",
-        "name": "_tokenURI",
-        "type": "string"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_tokenId",
-        "type": "uint256"
-      }
+      { "internalType": "string", "name": "_tokenURI", "type": "string" },
+      { "internalType": "uint256", "name": "_tokenId", "type": "uint256" }
     ],
     "name": "mintNft",
     "outputs": [],
@@ -1713,16 +1425,8 @@
   },
   {
     "inputs": [
-      {
-        "internalType": "address",
-        "name": "_daoAddress",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "_depositor",
-        "type": "address"
-      },
+      { "internalType": "address", "name": "_daoAddress", "type": "address" },
+      { "internalType": "address", "name": "_depositor", "type": "address" },
       {
         "internalType": "address",
         "name": "_depositTokenAddress",
@@ -1733,21 +1437,9 @@
         "name": "_depositTokenAmount",
         "type": "uint256"
       },
-      {
-        "internalType": "uint256",
-        "name": "_timeStamp",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_gtToken",
-        "type": "uint256"
-      },
-      {
-        "internalType": "bool",
-        "name": "_isAdmin",
-        "type": "bool"
-      }
+      { "internalType": "uint256", "name": "_timeStamp", "type": "uint256" },
+      { "internalType": "uint256", "name": "_gtToken", "type": "uint256" },
+      { "internalType": "bool", "name": "_isAdmin", "type": "bool" }
     ],
     "name": "newUser",
     "outputs": [],
@@ -1756,16 +1448,8 @@
   },
   {
     "inputs": [
-      {
-        "internalType": "address",
-        "name": "_daoAddress",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "_depositor",
-        "type": "address"
-      },
+      { "internalType": "address", "name": "_daoAddress", "type": "address" },
+      { "internalType": "address", "name": "_depositor", "type": "address" },
       {
         "internalType": "address",
         "name": "_depositTokenAddress",
@@ -1776,21 +1460,9 @@
         "name": "_depositTokenAmount",
         "type": "uint256"
       },
-      {
-        "internalType": "uint256",
-        "name": "_timeStamp",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_gtToken",
-        "type": "uint256"
-      },
-      {
-        "internalType": "bool",
-        "name": "_isAdmin",
-        "type": "bool"
-      }
+      { "internalType": "uint256", "name": "_timeStamp", "type": "uint256" },
+      { "internalType": "uint256", "name": "_gtToken", "type": "uint256" },
+      { "internalType": "bool", "name": "_isAdmin", "type": "bool" }
     ],
     "name": "newUserCC",
     "outputs": [],
@@ -1799,31 +1471,15 @@
   },
   {
     "inputs": [
-      {
-        "internalType": "address",
-        "name": "_user",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "_dao",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "_refundModule",
-        "type": "address"
-      },
+      { "internalType": "address", "name": "_user", "type": "address" },
+      { "internalType": "address", "name": "_dao", "type": "address" },
+      { "internalType": "address", "name": "_refundModule", "type": "address" },
       {
         "internalType": "address",
         "name": "_transferToken",
         "type": "address"
       },
-      {
-        "internalType": "uint256",
-        "name": "_burnAmount",
-        "type": "uint256"
-      },
+      { "internalType": "uint256", "name": "_burnAmount", "type": "uint256" },
       {
         "internalType": "uint256",
         "name": "_transferAmount",
@@ -1837,31 +1493,15 @@
   },
   {
     "inputs": [
-      {
-        "internalType": "address",
-        "name": "_user",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "_dao",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "_refundModule",
-        "type": "address"
-      },
+      { "internalType": "address", "name": "_user", "type": "address" },
+      { "internalType": "address", "name": "_dao", "type": "address" },
+      { "internalType": "address", "name": "_refundModule", "type": "address" },
       {
         "internalType": "address",
         "name": "_transferToken",
         "type": "address"
       },
-      {
-        "internalType": "uint256",
-        "name": "_tokenId",
-        "type": "uint256"
-      },
+      { "internalType": "uint256", "name": "_tokenId", "type": "uint256" },
       {
         "internalType": "uint256",
         "name": "_transferAmount",
@@ -1875,16 +1515,8 @@
   },
   {
     "inputs": [
-      {
-        "internalType": "address",
-        "name": "_nftAddress",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "_address",
-        "type": "address"
-      }
+      { "internalType": "address", "name": "_nftAddress", "type": "address" },
+      { "internalType": "address", "name": "_address", "type": "address" }
     ],
     "name": "removeWhitelistAddress",
     "outputs": [],
@@ -1893,16 +1525,8 @@
   },
   {
     "inputs": [
-      {
-        "internalType": "bytes32",
-        "name": "role",
-        "type": "bytes32"
-      },
-      {
-        "internalType": "address",
-        "name": "account",
-        "type": "address"
-      }
+      { "internalType": "bytes32", "name": "role", "type": "bytes32" },
+      { "internalType": "address", "name": "account", "type": "address" }
     ],
     "name": "renounceRole",
     "outputs": [],
@@ -1911,16 +1535,8 @@
   },
   {
     "inputs": [
-      {
-        "internalType": "bytes32",
-        "name": "role",
-        "type": "bytes32"
-      },
-      {
-        "internalType": "address",
-        "name": "account",
-        "type": "address"
-      }
+      { "internalType": "bytes32", "name": "role", "type": "bytes32" },
+      { "internalType": "address", "name": "account", "type": "address" }
     ],
     "name": "revokeRole",
     "outputs": [],
@@ -1929,26 +1545,10 @@
   },
   {
     "inputs": [
-      {
-        "internalType": "address",
-        "name": "_daoAddress",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "_token",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256[]",
-        "name": "_amount",
-        "type": "uint256[]"
-      },
-      {
-        "internalType": "address[]",
-        "name": "_addresses",
-        "type": "address[]"
-      }
+      { "internalType": "address", "name": "_daoAddress", "type": "address" },
+      { "internalType": "address", "name": "_token", "type": "address" },
+      { "internalType": "uint256[]", "name": "_amount", "type": "uint256[]" },
+      { "internalType": "address[]", "name": "_addresses", "type": "address[]" }
     ],
     "name": "sendCustomToken",
     "outputs": [],
@@ -1957,21 +1557,9 @@
   },
   {
     "inputs": [
-      {
-        "internalType": "address",
-        "name": "_proxy",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_startTime",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_closeTime",
-        "type": "uint256"
-      }
+      { "internalType": "address", "name": "_proxy", "type": "address" },
+      { "internalType": "uint256", "name": "_startTime", "type": "uint256" },
+      { "internalType": "uint256", "name": "_closeTime", "type": "uint256" }
     ],
     "name": "startDeposit",
     "outputs": [],
@@ -1980,30 +1568,16 @@
   },
   {
     "inputs": [
-      {
-        "internalType": "bytes4",
-        "name": "interfaceId",
-        "type": "bytes4"
-      }
+      { "internalType": "bytes4", "name": "interfaceId", "type": "bytes4" }
     ],
     "name": "supportsInterface",
-    "outputs": [
-      {
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-      }
-    ],
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      {
-        "internalType": "address",
-        "name": "_daoAddress",
-        "type": "address"
-      },
+      { "internalType": "address", "name": "_daoAddress", "type": "address" },
       {
         "internalType": "uint256",
         "name": "_distributionAmount",
@@ -2017,21 +1591,9 @@
   },
   {
     "inputs": [
-      {
-        "internalType": "address",
-        "name": "_proxy",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_quorum",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_threshold",
-        "type": "uint256"
-      }
+      { "internalType": "address", "name": "_proxy", "type": "address" },
+      { "internalType": "uint256", "name": "_quorum", "type": "uint256" },
+      { "internalType": "uint256", "name": "_threshold", "type": "uint256" }
     ],
     "name": "updateGovernanceSettings",
     "outputs": [],
@@ -2040,11 +1602,7 @@
   },
   {
     "inputs": [
-      {
-        "internalType": "address",
-        "name": "_nftAddress",
-        "type": "address"
-      },
+      { "internalType": "address", "name": "_nftAddress", "type": "address" },
       {
         "internalType": "uint256",
         "name": "_maxTokensPerUser",
@@ -2058,21 +1616,9 @@
   },
   {
     "inputs": [
-      {
-        "internalType": "address",
-        "name": "_proxy",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_minDeposit",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_maxDeposit",
-        "type": "uint256"
-      }
+      { "internalType": "address", "name": "_proxy", "type": "address" },
+      { "internalType": "uint256", "name": "_minDeposit", "type": "uint256" },
+      { "internalType": "uint256", "name": "_maxDeposit", "type": "uint256" }
     ],
     "name": "updateMinMaxDeposit",
     "outputs": [],
@@ -2081,16 +1627,8 @@
   },
   {
     "inputs": [
-      {
-        "internalType": "address",
-        "name": "_proxy",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_ownerFee",
-        "type": "uint256"
-      }
+      { "internalType": "address", "name": "_proxy", "type": "address" },
+      { "internalType": "uint256", "name": "_ownerFee", "type": "uint256" }
     ],
     "name": "updateOwnerFee",
     "outputs": [],
@@ -2099,16 +1637,8 @@
   },
   {
     "inputs": [
-      {
-        "internalType": "address",
-        "name": "_daoAddress",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_pricePerToken",
-        "type": "uint256"
-      }
+      { "internalType": "address", "name": "_daoAddress", "type": "address" },
+      { "internalType": "uint256", "name": "_pricePerToken", "type": "uint256" }
     ],
     "name": "updatePricePerToken",
     "outputs": [],
@@ -2117,16 +1647,8 @@
   },
   {
     "inputs": [
-      {
-        "internalType": "address",
-        "name": "_nftAddress",
-        "type": "address"
-      },
-      {
-        "internalType": "bool",
-        "name": "_isTokenTransferable",
-        "type": "bool"
-      }
+      { "internalType": "address", "name": "_nftAddress", "type": "address" },
+      { "internalType": "bool", "name": "_isTokenTransferable", "type": "bool" }
     ],
     "name": "updateTokenTransferability",
     "outputs": [],
@@ -2135,11 +1657,7 @@
   },
   {
     "inputs": [
-      {
-        "internalType": "address",
-        "name": "_nftAddress",
-        "type": "address"
-      },
+      { "internalType": "address", "name": "_nftAddress", "type": "address" },
       {
         "internalType": "uint256",
         "name": "_totalSupplyOfToken",
@@ -2153,16 +1671,8 @@
   },
   {
     "inputs": [
-      {
-        "internalType": "address",
-        "name": "_nftAddress",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "_address",
-        "type": "address"
-      }
+      { "internalType": "address", "name": "_nftAddress", "type": "address" },
+      { "internalType": "address", "name": "_address", "type": "address" }
     ],
     "name": "whitelistAddress",
     "outputs": [],

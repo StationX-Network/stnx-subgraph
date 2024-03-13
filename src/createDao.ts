@@ -10,7 +10,7 @@ export function createErc20Dao(event: CreateDaoErc20Event): void {
   let station = new Station(event.params.proxy.toHex())
   station.daoAddress = event.params.proxy
   station.gnosisAddress = event.params.gnosisAddress
-  station.ownerAddress = event.params.deployerAddress
+  station.ownerAddress = event.transaction.from
   station.name = event.params.name
   station.symbol = event.params.symbol
   station.imageUrl = ""
@@ -41,7 +41,7 @@ export function createErc721Dao(event: CreateDaoErc721Event): void {
   let station = new Station(event.params.proxy.toHex())
   station.daoAddress = event.params.proxy
   station.gnosisAddress = event.params.gnosisAddress
-  station.ownerAddress = event.params.deployerAddress
+  station.ownerAddress = event.transaction.from
   station.name = event.params.name
   station.symbol = event.params.symbol
   station.imageUrl = event.params.tokenURI
