@@ -32,4 +32,6 @@ dataSources:
           handler: handleDisributionAmount
         - event: Deposited(indexed address,indexed address,indexed address,uint256,uint256,uint256,uint256)
           handler: handleDeposit
+        - event: UpdateMinMaxDeposit(indexed address,uint256,uint256)
+          handler: handleMinMaxDepositAmt
       file: ./src/stnx-emitter.ts
