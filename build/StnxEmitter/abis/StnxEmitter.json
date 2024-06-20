@@ -238,6 +238,12 @@
       },
       {
         "indexed": false,
+        "internalType": "address",
+        "name": "lzImpl",
+        "type": "address"
+      },
+      {
+        "indexed": false,
         "internalType": "bool",
         "name": "isGovernanceActive",
         "type": "bool"
@@ -349,6 +355,12 @@
         "indexed": false,
         "internalType": "address",
         "name": "gnosisAddress",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "lzImpl",
         "type": "address"
       },
       {
@@ -1408,6 +1420,11 @@
         "type": "address"
       },
       {
+        "internalType": "address",
+        "name": "lzImpl",
+        "type": "address"
+      },
+      {
         "internalType": "bool",
         "name": "_isGovernanceActive",
         "type": "bool"
@@ -1503,6 +1520,11 @@
       {
         "internalType": "address",
         "name": "_gnosisAddress",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "lzImpl",
         "type": "address"
       },
       {

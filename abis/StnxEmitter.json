@@ -61,19 +61,19 @@
       {
         "indexed": true,
         "internalType": "address",
-        "name": "_refundModule",
+        "name": "refundModule",
         "type": "address"
       },
       {
         "indexed": true,
         "internalType": "address",
-        "name": "_daoAddress",
+        "name": "daoAddress",
         "type": "address"
       },
       {
         "indexed": false,
         "internalType": "bytes32",
-        "name": "_newMerkleRoot",
+        "name": "newMerkleRoot",
         "type": "bytes32"
       }
     ],
@@ -122,25 +122,6 @@
       }
     ],
     "name": "CloseDeposit",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": false,
-        "internalType": "address",
-        "name": "_daoAddress",
-        "type": "address"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint256[]",
-        "name": "_chainIds",
-        "type": "uint256[]"
-      }
-    ],
-    "name": "CreateCCDAO",
     "type": "event"
   },
   {
@@ -422,7 +403,7 @@
       {
         "indexed": false,
         "internalType": "address",
-        "name": "_daoAddress",
+        "name": "_dao",
         "type": "address"
       },
       {
@@ -497,6 +478,12 @@
         "indexed": true,
         "internalType": "address",
         "name": "_ERC721Implementation",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "_wrappedTokenAddress",
         "type": "address"
       },
       {
@@ -637,64 +624,9 @@
     "anonymous": false,
     "inputs": [
       {
-        "indexed": true,
-        "internalType": "address",
-        "name": "_daoAddress",
-        "type": "address"
-      },
-      {
-        "indexed": true,
-        "internalType": "address",
-        "name": "_depositor",
-        "type": "address"
-      },
-      {
-        "indexed": true,
-        "internalType": "address",
-        "name": "_depositTokenAddress",
-        "type": "address"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "_depositTokenAmount",
-        "type": "uint256"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "_timeStamp",
-        "type": "uint256"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "_gtToken",
-        "type": "uint256"
-      },
-      {
-        "indexed": false,
-        "internalType": "bool",
-        "name": "_isAdmin",
-        "type": "bool"
-      }
-    ],
-    "name": "NewUserCC",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
         "indexed": false,
         "internalType": "address",
-        "name": "_user",
-        "type": "address"
-      },
-      {
-        "indexed": false,
-        "internalType": "address",
-        "name": "_daoAddress",
+        "name": "_dao",
         "type": "address"
       },
       {
@@ -731,13 +663,7 @@
       {
         "indexed": false,
         "internalType": "address",
-        "name": "_user",
-        "type": "address"
-      },
-      {
-        "indexed": false,
-        "internalType": "address",
-        "name": "_daoAddress",
+        "name": "_dao",
         "type": "address"
       },
       {
@@ -916,37 +842,6 @@
       }
     ],
     "name": "StartDeposit",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
-        "internalType": "address",
-        "name": "_daoAddress",
-        "type": "address"
-      },
-      {
-        "indexed": true,
-        "internalType": "address",
-        "name": "_from",
-        "type": "address"
-      },
-      {
-        "indexed": true,
-        "internalType": "address",
-        "name": "_to",
-        "type": "address"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "_value",
-        "type": "uint256"
-      }
-    ],
-    "name": "TransferGT",
     "type": "event"
   },
   {
@@ -1308,24 +1203,6 @@
       }
     ],
     "name": "closeDeposit",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "_dao",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256[]",
-        "name": "_chainIds",
-        "type": "uint256[]"
-      }
-    ],
-    "name": "createCCDao",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -1708,6 +1585,11 @@
       },
       {
         "internalType": "address",
+        "name": "_wrappedTokenAddress",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
         "name": "_factory",
         "type": "address"
       }
@@ -1815,54 +1697,6 @@
     "inputs": [
       {
         "internalType": "address",
-        "name": "_daoAddress",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "_depositor",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "_depositTokenAddress",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_depositTokenAmount",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_timeStamp",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_gtToken",
-        "type": "uint256"
-      },
-      {
-        "internalType": "bool",
-        "name": "_isAdmin",
-        "type": "bool"
-      }
-    ],
-    "name": "newUserCC",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "_user",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
         "name": "_dao",
         "type": "address"
       },
@@ -1894,11 +1728,6 @@
   },
   {
     "inputs": [
-      {
-        "internalType": "address",
-        "name": "_user",
-        "type": "address"
-      },
       {
         "internalType": "address",
         "name": "_dao",
@@ -2052,34 +1881,6 @@
       }
     ],
     "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "_dao",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "_from",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "_to",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_value",
-        "type": "uint256"
-      }
-    ],
-    "name": "transferGT",
-    "outputs": [],
-    "stateMutability": "nonpayable",
     "type": "function"
   },
   {

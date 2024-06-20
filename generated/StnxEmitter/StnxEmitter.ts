@@ -235,16 +235,20 @@ export class CreateDaoErc20__Params {
     return this._event.parameters[14].value.toAddress();
   }
 
-  get isGovernanceActive(): boolean {
-    return this._event.parameters[15].value.toBoolean();
+  get lzImpl(): Address {
+    return this._event.parameters[15].value.toAddress();
   }
 
-  get isTransferable(): boolean {
+  get isGovernanceActive(): boolean {
     return this._event.parameters[16].value.toBoolean();
   }
 
-  get assetsStoredOnGnosis(): boolean {
+  get isTransferable(): boolean {
     return this._event.parameters[17].value.toBoolean();
+  }
+
+  get assetsStoredOnGnosis(): boolean {
+    return this._event.parameters[18].value.toBoolean();
   }
 }
 
@@ -321,16 +325,20 @@ export class CreateDaoErc721__Params {
     return this._event.parameters[14].value.toAddress();
   }
 
-  get isGovernanceActive(): boolean {
-    return this._event.parameters[15].value.toBoolean();
+  get lzImpl(): Address {
+    return this._event.parameters[15].value.toAddress();
   }
 
-  get isTransferable(): boolean {
+  get isGovernanceActive(): boolean {
     return this._event.parameters[16].value.toBoolean();
   }
 
-  get assetsStoredOnGnosis(): boolean {
+  get isTransferable(): boolean {
     return this._event.parameters[17].value.toBoolean();
+  }
+
+  get assetsStoredOnGnosis(): boolean {
+    return this._event.parameters[18].value.toBoolean();
   }
 }
 
@@ -1596,16 +1604,20 @@ export class CreateDaoErc20Call__Inputs {
     return this._call.inputValues[14].value.toAddress();
   }
 
-  get _isGovernanceActive(): boolean {
-    return this._call.inputValues[15].value.toBoolean();
+  get lzImpl(): Address {
+    return this._call.inputValues[15].value.toAddress();
   }
 
-  get isTransferable(): boolean {
+  get _isGovernanceActive(): boolean {
     return this._call.inputValues[16].value.toBoolean();
   }
 
-  get assetsStoredOnGnosis(): boolean {
+  get isTransferable(): boolean {
     return this._call.inputValues[17].value.toBoolean();
+  }
+
+  get assetsStoredOnGnosis(): boolean {
+    return this._call.inputValues[18].value.toBoolean();
   }
 }
 
@@ -1694,16 +1706,20 @@ export class CreateDaoErc721Call__Inputs {
     return this._call.inputValues[14].value.toAddress();
   }
 
-  get _isGovernanceActive(): boolean {
-    return this._call.inputValues[15].value.toBoolean();
+  get lzImpl(): Address {
+    return this._call.inputValues[15].value.toAddress();
   }
 
-  get isTransferable(): boolean {
+  get _isGovernanceActive(): boolean {
     return this._call.inputValues[16].value.toBoolean();
   }
 
-  get assetsStoredOnGnosis(): boolean {
+  get isTransferable(): boolean {
     return this._call.inputValues[17].value.toBoolean();
+  }
+
+  get assetsStoredOnGnosis(): boolean {
+    return this._call.inputValues[18].value.toBoolean();
   }
 }
 

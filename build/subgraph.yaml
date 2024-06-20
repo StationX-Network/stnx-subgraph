@@ -4,10 +4,10 @@ schema:
 dataSources:
   - kind: ethereum
     name: StnxEmitter
-    network: scroll
+    network: berachain-bartio
     source:
-      address: "0xA016957325e1dfCAcEcA8D760DD8634F34617b7c"
-      startBlock: 5831043
+      address: "0x7E905071FC559d196df6Db0C60fc6E073F345BCC"
+      startBlock: 341012
       abi: StnxEmitter
     mapping:
       kind: ethereum/events
@@ -21,10 +21,10 @@ dataSources:
           file: StnxEmitter/abis/StnxEmitter.json
       eventHandlers:
         - event: CreateDaoErc20(indexed address,indexed
-            address,string,string,uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint256,address,address,address,bool,bool,bool)
+            address,string,string,uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint256,address,address,address,address,bool,bool,bool)
           handler: handleCreateDaoErc20
         - event: CreateDaoErc721(indexed address,indexed
-            address,string,string,string,uint256,uint256,uint256,uint256,uint256,uint256,uint256,address,address,address,bool,bool,bool)
+            address,string,string,string,uint256,uint256,uint256,uint256,uint256,uint256,uint256,address,address,address,address,bool,bool,bool)
           handler: handleCreateDaoErc721
         - event: NewUser(indexed address,indexed address,indexed
             address,uint256,uint256,uint256,bool)
