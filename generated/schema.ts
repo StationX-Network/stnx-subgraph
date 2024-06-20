@@ -299,13 +299,21 @@ export class User extends Entity {
     this.set("userAddress", Value.fromBytes(value));
   }
 
-  get tokenAddress(): Bytes {
+  get tokenAddress(): Bytes | null {
     let value = this.get("tokenAddress");
-    return value!.toBytes();
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toBytes();
+    }
   }
 
-  set tokenAddress(value: Bytes) {
-    this.set("tokenAddress", Value.fromBytes(value));
+  set tokenAddress(value: Bytes | null) {
+    if (!value) {
+      this.unset("tokenAddress");
+    } else {
+      this.set("tokenAddress", Value.fromBytes(<Bytes>value));
+    }
   }
 
   get depositAmount(): BigInt {

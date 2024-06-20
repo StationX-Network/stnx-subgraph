@@ -29,7 +29,7 @@ type User @entity {
   daoAddress: Bytes! # address
   daoName: String! # string
   userAddress: Bytes! # address
-  tokenAddress: Bytes! # address
+  tokenAddress: Bytes # address
   depositAmount: BigInt! # uint256
   timeStamp: BigInt! # uint256
   gtAmount: BigInt! # uint256

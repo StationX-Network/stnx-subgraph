@@ -1,7 +1,10 @@
 import { BigInt } from "@graphprotocol/graph-ts"
 
 import { Station, User } from "../generated/schema"
-import { NewUser as NewUserEvent } from "../generated/StnxEmitter/StnxEmitter"
+import {
+  NewUser as NewUserEvent,
+  ChangedSigners as ChangedSignersEvent,
+} from "../generated/StnxEmitter/StnxEmitter"
 
 export function createNewUser(event: NewUserEvent): void {
   let id =
@@ -41,4 +44,30 @@ export function createNewUser(event: NewUserEvent): void {
     event.params._depositTokenAmount
   )
   station.save()
+}
+
+export function handleSignerChange(event: ChangedSignersEvent): void {
+  let id = event.params._signer.toHex() + "-" + event.params._daoAddress.toHex()
+  let user = User.load(id)
+
+  let daoAddress = event.params._daoAddress.toHex()
+  let station = Station.load(daoAddress)
+  if (!station) return
+
+  if (!user) {
+    // Create a new user entity if none exists
+    let user = new User(id)
+    user.daoAddress = event.params._daoAddress
+    user.userAddress = event.params._signer
+    user.tokenAddress = null
+    user.depositAmount = BigInt.fromI32(0)
+    user.timeStamp = event.block.timestamp
+    user.gtAmount = BigInt.fromI32(0)
+    user.isAdmin = event.params._isAdded
+    user.daoName = station.name
+    user.save()
+  } else {
+    user.isAdmin = event.params._isAdded
+    user.save()
+  }
 }
