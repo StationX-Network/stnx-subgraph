@@ -20,18 +20,26 @@ dataSources:
         - name: StnxEmitter
           file: ./abis/StnxEmitter.json
       eventHandlers:
-        - event: CreateDaoErc20(indexed address,indexed address,string,string,uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint256,address,address,address,address,bool,bool,bool)
-          handler: handleCreateDaoErc20
-        - event: CreateDaoErc721(indexed address,indexed address,string,string,string,uint256,uint256,uint256,uint256,uint256,uint256,uint256,address,address,address,address,bool,bool,bool)
-          handler: handleCreateDaoErc721
-        - event: NewUser(indexed address,indexed address,indexed address,uint256,uint256,uint256,bool)
-          handler: handleNewUser
-        - event: UpdatePricePerToken(indexed address,uint256)
-          handler: handlePricePerToken
-        - event: UpdateDistributionAmount(indexed address,uint256)
-          handler: handleDisributionAmount
-        - event: Deposited(indexed address,indexed address,indexed address,uint256,uint256,uint256,uint256)
+        - event: Deposited(address indexed,address indexed,address indexed,uint256,uint256,uint256,uint256)
           handler: handleDeposit
-        - event: UpdateMinMaxDeposit(indexed address,uint256,uint256)
+        - event: CreateDaoErc20(address indexed,address indexed,string,string,uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint256,address,address,address,address,bool,bool,bool)
+          handler: handleCreateDaoErc20
+        - event: CreateDaoErc721(address indexed,address indexed,string,string,string,uint256,uint256,uint256,uint256,uint256,uint256,uint256,address,address,address,address,bool,bool,bool)
+          handler: handleCreateDaoErc721
+        - event: NewUser(address indexed,address indexed,address indexed,uint256,uint256,uint256,bool)
+          handler: handleNewUser
+        - event: UpdateDistributionAmount(address indexed,uint256)
+          handler: handleDisributionAmount
+        - event: UpdateMinMaxDeposit(address indexed,uint256,uint256)
           handler: handleMinMaxDepositAmt
+        - event: UpdatePricePerToken(address indexed,uint256)
+          handler: handlePricePerToken
+        - event: RefundERC20DAO(address,address,address,address,uint256,uint256)
+          handler: handleRefundERC20DAO
+        - event: RefundERC721DAO(address,address,address,address,uint256[],uint256)
+          handler: handleRefundERC721DAO
+        - event: StartDeposit(address indexed,uint256,uint256)
+          handler: handleStartDeposit
+        - event: ChangedSigners(address indexed,address indexed,bool indexed)
+          handler: handleChangedSigners
       file: ./src/stnx-emitter.ts

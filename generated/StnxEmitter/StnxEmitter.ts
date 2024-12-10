@@ -7,7 +7,7 @@ import {
   Entity,
   Bytes,
   Address,
-  BigInt
+  BigInt,
 } from "@graphprotocol/graph-ts";
 
 export class AirDropToken extends ethereum.Event {
@@ -400,6 +400,10 @@ export class DeployRefundModule__Params {
   get _merkleRoot(): Bytes {
     return this._event.parameters[3].value.toBytes();
   }
+
+  get _refundToken(): Address {
+    return this._event.parameters[4].value.toAddress();
+  }
 }
 
 export class Deposited extends ethereum.Event {
@@ -699,8 +703,8 @@ export class RefundERC721DAO__Params {
     return this._event.parameters[3].value.toAddress();
   }
 
-  get _tokenId(): BigInt {
-    return this._event.parameters[4].value.toBigInt();
+  get _tokenId(): Array<BigInt> {
+    return this._event.parameters[4].value.toBigIntArray();
   }
 
   get _transferAmount(): BigInt {
@@ -1109,7 +1113,7 @@ export class StnxEmitter extends ethereum.SmartContract {
     let result = super.call(
       "DEFAULT_ADMIN_ROLE",
       "DEFAULT_ADMIN_ROLE():(bytes32)",
-      []
+      [],
     );
 
     return result[0].toBytes();
@@ -1119,7 +1123,7 @@ export class StnxEmitter extends ethereum.SmartContract {
     let result = super.tryCall(
       "DEFAULT_ADMIN_ROLE",
       "DEFAULT_ADMIN_ROLE():(bytes32)",
-      []
+      [],
     );
     if (result.reverted) {
       return new ethereum.CallResult();
@@ -1168,7 +1172,7 @@ export class StnxEmitter extends ethereum.SmartContract {
     let result = super.tryCall(
       "factoryAddress",
       "factoryAddress():(address)",
-      []
+      [],
     );
     if (result.reverted) {
       return new ethereum.CallResult();
@@ -1179,7 +1183,7 @@ export class StnxEmitter extends ethereum.SmartContract {
 
   getRoleAdmin(role: Bytes): Bytes {
     let result = super.call("getRoleAdmin", "getRoleAdmin(bytes32):(bytes32)", [
-      ethereum.Value.fromFixedBytes(role)
+      ethereum.Value.fromFixedBytes(role),
     ]);
 
     return result[0].toBytes();
@@ -1189,7 +1193,7 @@ export class StnxEmitter extends ethereum.SmartContract {
     let result = super.tryCall(
       "getRoleAdmin",
       "getRoleAdmin(bytes32):(bytes32)",
-      [ethereum.Value.fromFixedBytes(role)]
+      [ethereum.Value.fromFixedBytes(role)],
     );
     if (result.reverted) {
       return new ethereum.CallResult();
@@ -1201,7 +1205,7 @@ export class StnxEmitter extends ethereum.SmartContract {
   hasRole(role: Bytes, account: Address): boolean {
     let result = super.call("hasRole", "hasRole(bytes32,address):(bool)", [
       ethereum.Value.fromFixedBytes(role),
-      ethereum.Value.fromAddress(account)
+      ethereum.Value.fromAddress(account),
     ]);
 
     return result[0].toBoolean();
@@ -1210,7 +1214,7 @@ export class StnxEmitter extends ethereum.SmartContract {
   try_hasRole(role: Bytes, account: Address): ethereum.CallResult<boolean> {
     let result = super.tryCall("hasRole", "hasRole(bytes32,address):(bool)", [
       ethereum.Value.fromFixedBytes(role),
-      ethereum.Value.fromAddress(account)
+      ethereum.Value.fromAddress(account),
     ]);
     if (result.reverted) {
       return new ethereum.CallResult();
@@ -1223,7 +1227,7 @@ export class StnxEmitter extends ethereum.SmartContract {
     let result = super.call(
       "supportsInterface",
       "supportsInterface(bytes4):(bool)",
-      [ethereum.Value.fromFixedBytes(interfaceId)]
+      [ethereum.Value.fromFixedBytes(interfaceId)],
     );
 
     return result[0].toBoolean();
@@ -1233,7 +1237,7 @@ export class StnxEmitter extends ethereum.SmartContract {
     let result = super.tryCall(
       "supportsInterface",
       "supportsInterface(bytes4):(bool)",
-      [ethereum.Value.fromFixedBytes(interfaceId)]
+      [ethereum.Value.fromFixedBytes(interfaceId)],
     );
     if (result.reverted) {
       return new ethereum.CallResult();
@@ -1801,6 +1805,10 @@ export class DeployRefundModuleCall__Inputs {
   get _merkleRoot(): Bytes {
     return this._call.inputValues[3].value.toBytes();
   }
+
+  get _refundToken(): Address {
+    return this._call.inputValues[4].value.toAddress();
+  }
 }
 
 export class DeployRefundModuleCall__Outputs {
@@ -2208,8 +2216,8 @@ export class RefundERC721DAOCall__Inputs {
     return this._call.inputValues[3].value.toAddress();
   }
 
-  get _tokenId(): BigInt {
-    return this._call.inputValues[4].value.toBigInt();
+  get _tokenIds(): Array<BigInt> {
+    return this._call.inputValues[4].value.toBigIntArray();
   }
 
   get _transferAmount(): BigInt {
