@@ -1,6 +1,6 @@
 specVersion: 0.0.4
 schema:
-  file: ./schema.graphql
+  file: schema.graphql
 dataSources:
   - kind: ethereum
     name: StnxEmitter
@@ -18,15 +18,19 @@ dataSources:
         - User
       abis:
         - name: StnxEmitter
-          file: ./abis/StnxEmitter.json
+          file: StnxEmitter/StnxEmitter.json
       eventHandlers:
-        - event: Deposited(indexed address,indexed address,indexed address,uint256,uint256,uint256,uint256)
+        - event: Deposited(indexed address,indexed address,indexed
+            address,uint256,uint256,uint256,uint256)
           handler: handleDeposit
-        - event: CreateDaoErc20(indexed address,indexed address,string,string,uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint256,address,address,address,address,bool,bool,bool)
+        - event: CreateDaoErc20(indexed address,indexed
+            address,string,string,uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint256,address,address,address,address,bool,bool,bool)
           handler: handleCreateDaoErc20
-        - event: CreateDaoErc721(indexed address,indexed address,string,string,string,uint256,uint256,uint256,uint256,uint256,uint256,uint256,address,address,address,address,bool,bool,bool)
+        - event: CreateDaoErc721(indexed address,indexed
+            address,string,string,string,uint256,uint256,uint256,uint256,uint256,uint256,uint256,address,address,address,address,bool,bool,bool)
           handler: handleCreateDaoErc721
-        - event: NewUser(indexed address,indexed address,indexed address,uint256,uint256,uint256,bool)
+        - event: NewUser(indexed address,indexed address,indexed
+            address,uint256,uint256,uint256,bool)
           handler: handleNewUser
         - event: UpdateDistributionAmount(indexed address,uint256)
           handler: handleDisributionAmount
@@ -42,4 +46,4 @@ dataSources:
           handler: handleStartDeposit
         - event: ChangedSigners(indexed address,indexed address,indexed bool)
           handler: handleChangedSigners
-      file: ./src/stnx-emitter.ts
+      file: StnxEmitter/StnxEmitter.wasm
