@@ -4,10 +4,10 @@ schema:
 dataSources:
   - kind: ethereum
     name: StnxEmitter
-    network: matic
+    network: mainnet
     source:
-      address: "0xE313ce03ca26F4AFb3F81160Cd6E3BDA1373981E"
-      startBlock: 42852563
+      address: "0xA0113FF935416ad6E2F0DD689329Ec13Fc062389"
+      startBlock: 18891639
       abi: StnxEmitter
     mapping:
       kind: ethereum/events
@@ -18,16 +18,16 @@ dataSources:
         - User
       abis:
         - name: StnxEmitter
-          file: StnxEmitter/StnxEmitter.json
+          file: StnxEmitter/abis/StnxEmitter-base.json
       eventHandlers:
         - event: Deposited(indexed address,indexed address,indexed
             address,uint256,uint256,uint256,uint256)
           handler: handleDeposit
         - event: CreateDaoErc20(indexed address,indexed
-            address,string,string,uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint256,address,address,address,address,bool,bool,bool)
+            address,string,string,uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint256,address,address,address,bool,bool,bool)
           handler: handleCreateDaoErc20
         - event: CreateDaoErc721(indexed address,indexed
-            address,string,string,string,uint256,uint256,uint256,uint256,uint256,uint256,uint256,address,address,address,address,bool,bool,bool)
+            address,string,string,string,uint256,uint256,uint256,uint256,uint256,uint256,uint256,address,address,address,bool,bool,bool)
           handler: handleCreateDaoErc721
         - event: NewUser(indexed address,indexed address,indexed
             address,uint256,uint256,uint256,bool)

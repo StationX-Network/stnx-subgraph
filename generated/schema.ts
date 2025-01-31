@@ -8,7 +8,7 @@ import {
   store,
   Bytes,
   BigInt,
-  BigDecimal,
+  BigDecimal
 } from "@graphprotocol/graph-ts";
 
 export class Station extends Entity {
@@ -23,7 +23,7 @@ export class Station extends Entity {
     if (id) {
       assert(
         id.kind == ValueKind.STRING,
-        `Entities of type Station must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`,
+        `Entities of type Station must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
       );
       store.set("Station", id.toString(), this);
     }
@@ -50,43 +50,43 @@ export class Station extends Entity {
     this.set("id", Value.fromString(value));
   }
 
-  get ownerAddress(): Bytes {
+  get ownerAddress(): string {
     let value = this.get("ownerAddress");
     if (!value || value.kind == ValueKind.NULL) {
       throw new Error("Cannot return null for a required field.");
     } else {
-      return value.toBytes();
+      return value.toString();
     }
   }
 
-  set ownerAddress(value: Bytes) {
-    this.set("ownerAddress", Value.fromBytes(value));
+  set ownerAddress(value: string) {
+    this.set("ownerAddress", Value.fromString(value));
   }
 
-  get daoAddress(): Bytes {
+  get daoAddress(): string {
     let value = this.get("daoAddress");
     if (!value || value.kind == ValueKind.NULL) {
       throw new Error("Cannot return null for a required field.");
     } else {
-      return value.toBytes();
+      return value.toString();
     }
   }
 
-  set daoAddress(value: Bytes) {
-    this.set("daoAddress", Value.fromBytes(value));
+  set daoAddress(value: string) {
+    this.set("daoAddress", Value.fromString(value));
   }
 
-  get gnosisAddress(): Bytes {
+  get gnosisAddress(): string {
     let value = this.get("gnosisAddress");
     if (!value || value.kind == ValueKind.NULL) {
       throw new Error("Cannot return null for a required field.");
     } else {
-      return value.toBytes();
+      return value.toString();
     }
   }
 
-  set gnosisAddress(value: Bytes) {
-    this.set("gnosisAddress", Value.fromBytes(value));
+  set gnosisAddress(value: string) {
+    this.set("gnosisAddress", Value.fromString(value));
   }
 
   get name(): string {
@@ -349,7 +349,7 @@ export class User extends Entity {
     if (id) {
       assert(
         id.kind == ValueKind.STRING,
-        `Entities of type User must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`,
+        `Entities of type User must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
       );
       store.set("User", id.toString(), this);
     }
@@ -376,17 +376,17 @@ export class User extends Entity {
     this.set("id", Value.fromString(value));
   }
 
-  get daoAddress(): Bytes {
+  get daoAddress(): string {
     let value = this.get("daoAddress");
     if (!value || value.kind == ValueKind.NULL) {
       throw new Error("Cannot return null for a required field.");
     } else {
-      return value.toBytes();
+      return value.toString();
     }
   }
 
-  set daoAddress(value: Bytes) {
-    this.set("daoAddress", Value.fromBytes(value));
+  set daoAddress(value: string) {
+    this.set("daoAddress", Value.fromString(value));
   }
 
   get daoName(): string {
@@ -402,30 +402,30 @@ export class User extends Entity {
     this.set("daoName", Value.fromString(value));
   }
 
-  get userAddress(): Bytes {
+  get userAddress(): string {
     let value = this.get("userAddress");
     if (!value || value.kind == ValueKind.NULL) {
       throw new Error("Cannot return null for a required field.");
     } else {
-      return value.toBytes();
+      return value.toString();
     }
   }
 
-  set userAddress(value: Bytes) {
-    this.set("userAddress", Value.fromBytes(value));
+  set userAddress(value: string) {
+    this.set("userAddress", Value.fromString(value));
   }
 
-  get tokenAddress(): Bytes {
+  get tokenAddress(): string {
     let value = this.get("tokenAddress");
     if (!value || value.kind == ValueKind.NULL) {
       throw new Error("Cannot return null for a required field.");
     } else {
-      return value.toBytes();
+      return value.toString();
     }
   }
 
-  set tokenAddress(value: Bytes) {
-    this.set("tokenAddress", Value.fromBytes(value));
+  set tokenAddress(value: string) {
+    this.set("tokenAddress", Value.fromString(value));
   }
 
   get depositAmount(): BigInt {
@@ -493,7 +493,7 @@ export class Deposit extends Entity {
     if (id) {
       assert(
         id.kind == ValueKind.STRING,
-        `Entities of type Deposit must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`,
+        `Entities of type Deposit must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
       );
       store.set("Deposit", id.toString(), this);
     }
@@ -520,43 +520,43 @@ export class Deposit extends Entity {
     this.set("id", Value.fromString(value));
   }
 
-  get daoAddress(): Bytes {
+  get daoAddress(): string {
     let value = this.get("daoAddress");
     if (!value || value.kind == ValueKind.NULL) {
       throw new Error("Cannot return null for a required field.");
     } else {
-      return value.toBytes();
+      return value.toString();
     }
   }
 
-  set daoAddress(value: Bytes) {
-    this.set("daoAddress", Value.fromBytes(value));
+  set daoAddress(value: string) {
+    this.set("daoAddress", Value.fromString(value));
   }
 
-  get depositor(): Bytes {
+  get depositor(): string {
     let value = this.get("depositor");
     if (!value || value.kind == ValueKind.NULL) {
       throw new Error("Cannot return null for a required field.");
     } else {
-      return value.toBytes();
+      return value.toString();
     }
   }
 
-  set depositor(value: Bytes) {
-    this.set("depositor", Value.fromBytes(value));
+  set depositor(value: string) {
+    this.set("depositor", Value.fromString(value));
   }
 
-  get depositTokenAddress(): Bytes {
+  get depositTokenAddress(): string {
     let value = this.get("depositTokenAddress");
     if (!value || value.kind == ValueKind.NULL) {
       throw new Error("Cannot return null for a required field.");
     } else {
-      return value.toBytes();
+      return value.toString();
     }
   }
 
-  set depositTokenAddress(value: Bytes) {
-    this.set("depositTokenAddress", Value.fromBytes(value));
+  set depositTokenAddress(value: string) {
+    this.set("depositTokenAddress", Value.fromString(value));
   }
 
   get amount(): BigInt {

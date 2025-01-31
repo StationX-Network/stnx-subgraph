@@ -1,8 +1,8 @@
 type Station @entity {
   id: ID!
-  ownerAddress: Bytes! # address
-  daoAddress: Bytes! # address
-  gnosisAddress: Bytes! #address
+  ownerAddress: String! # address
+  daoAddress: String! # address
+  gnosisAddress: String! #address
   name: String! # string
   symbol: String! # string
   tokenType: String! #string
@@ -26,10 +26,10 @@ type Station @entity {
 
 type User @entity {
   id: ID!
-  daoAddress: Bytes! # address
+  daoAddress: String! # address
   daoName: String! # string
-  userAddress: Bytes! # address
-  tokenAddress: Bytes! # address
+  userAddress: String! # address
+  tokenAddress: String! # address
   depositAmount: BigInt! # uint256
   timeStamp: BigInt! # uint256
   gtAmount: BigInt! # uint256
@@ -38,9 +38,9 @@ type User @entity {
 
 type Deposit @entity {
   id: ID!
-  daoAddress: Bytes!
-  depositor: Bytes!
-  depositTokenAddress: Bytes!
+  daoAddress: String!
+  depositor: String!
+  depositTokenAddress: String!
   amount: BigInt!
   timeStamp: BigInt!
   ownerFee: BigInt!

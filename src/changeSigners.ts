@@ -17,9 +17,11 @@ export function changeSigners(event: ChangedSignersEvent): void {
     } else {
       const user = new User(id);
 
-      user.daoAddress = event.params._daoAddress;
-      user.userAddress = event.params._signer;
-      user.tokenAddress = Bytes.fromHexString(station.depositTokenAddress);
+      user.daoAddress = event.params._daoAddress.toHexString();
+      user.userAddress = event.params._signer.toHexString();
+      user.tokenAddress = Bytes.fromHexString(
+        station.depositTokenAddress
+      ).toHexString();
       user.depositAmount = BigInt.fromI32(0);
       user.timeStamp = event.block.timestamp;
       user.gtAmount = BigInt.fromI32(0);
@@ -30,7 +32,9 @@ export function changeSigners(event: ChangedSignersEvent): void {
   } else {
     if (user) {
       if (user.gtAmount == BigInt.fromI32(0)) {
-        user.daoAddress = Bytes.fromHexString("0x123456789qwertyuiop");
+        user.daoAddress = Bytes.fromHexString(
+          "0x000000000000000000000000"
+        ).toHexString();
         user.save();
       } else {
         user.isAdmin = false;

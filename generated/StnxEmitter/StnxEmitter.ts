@@ -7,7 +7,7 @@ import {
   Entity,
   Bytes,
   Address,
-  BigInt,
+  BigInt
 } from "@graphprotocol/graph-ts";
 
 export class AirDropToken extends ethereum.Event {
@@ -235,20 +235,16 @@ export class CreateDaoErc20__Params {
     return this._event.parameters[14].value.toAddress();
   }
 
-  get lzImpl(): Address {
-    return this._event.parameters[15].value.toAddress();
-  }
-
   get isGovernanceActive(): boolean {
-    return this._event.parameters[16].value.toBoolean();
+    return this._event.parameters[15].value.toBoolean();
   }
 
   get isTransferable(): boolean {
-    return this._event.parameters[17].value.toBoolean();
+    return this._event.parameters[16].value.toBoolean();
   }
 
   get assetsStoredOnGnosis(): boolean {
-    return this._event.parameters[18].value.toBoolean();
+    return this._event.parameters[17].value.toBoolean();
   }
 }
 
@@ -325,20 +321,16 @@ export class CreateDaoErc721__Params {
     return this._event.parameters[14].value.toAddress();
   }
 
-  get lzImpl(): Address {
-    return this._event.parameters[15].value.toAddress();
-  }
-
   get isGovernanceActive(): boolean {
-    return this._event.parameters[16].value.toBoolean();
+    return this._event.parameters[15].value.toBoolean();
   }
 
   get isTransferable(): boolean {
-    return this._event.parameters[17].value.toBoolean();
+    return this._event.parameters[16].value.toBoolean();
   }
 
   get assetsStoredOnGnosis(): boolean {
-    return this._event.parameters[18].value.toBoolean();
+    return this._event.parameters[17].value.toBoolean();
   }
 }
 
@@ -1113,7 +1105,7 @@ export class StnxEmitter extends ethereum.SmartContract {
     let result = super.call(
       "DEFAULT_ADMIN_ROLE",
       "DEFAULT_ADMIN_ROLE():(bytes32)",
-      [],
+      []
     );
 
     return result[0].toBytes();
@@ -1123,7 +1115,7 @@ export class StnxEmitter extends ethereum.SmartContract {
     let result = super.tryCall(
       "DEFAULT_ADMIN_ROLE",
       "DEFAULT_ADMIN_ROLE():(bytes32)",
-      [],
+      []
     );
     if (result.reverted) {
       return new ethereum.CallResult();
@@ -1172,7 +1164,7 @@ export class StnxEmitter extends ethereum.SmartContract {
     let result = super.tryCall(
       "factoryAddress",
       "factoryAddress():(address)",
-      [],
+      []
     );
     if (result.reverted) {
       return new ethereum.CallResult();
@@ -1183,7 +1175,7 @@ export class StnxEmitter extends ethereum.SmartContract {
 
   getRoleAdmin(role: Bytes): Bytes {
     let result = super.call("getRoleAdmin", "getRoleAdmin(bytes32):(bytes32)", [
-      ethereum.Value.fromFixedBytes(role),
+      ethereum.Value.fromFixedBytes(role)
     ]);
 
     return result[0].toBytes();
@@ -1193,7 +1185,7 @@ export class StnxEmitter extends ethereum.SmartContract {
     let result = super.tryCall(
       "getRoleAdmin",
       "getRoleAdmin(bytes32):(bytes32)",
-      [ethereum.Value.fromFixedBytes(role)],
+      [ethereum.Value.fromFixedBytes(role)]
     );
     if (result.reverted) {
       return new ethereum.CallResult();
@@ -1205,7 +1197,7 @@ export class StnxEmitter extends ethereum.SmartContract {
   hasRole(role: Bytes, account: Address): boolean {
     let result = super.call("hasRole", "hasRole(bytes32,address):(bool)", [
       ethereum.Value.fromFixedBytes(role),
-      ethereum.Value.fromAddress(account),
+      ethereum.Value.fromAddress(account)
     ]);
 
     return result[0].toBoolean();
@@ -1214,7 +1206,7 @@ export class StnxEmitter extends ethereum.SmartContract {
   try_hasRole(role: Bytes, account: Address): ethereum.CallResult<boolean> {
     let result = super.tryCall("hasRole", "hasRole(bytes32,address):(bool)", [
       ethereum.Value.fromFixedBytes(role),
-      ethereum.Value.fromAddress(account),
+      ethereum.Value.fromAddress(account)
     ]);
     if (result.reverted) {
       return new ethereum.CallResult();
@@ -1227,7 +1219,7 @@ export class StnxEmitter extends ethereum.SmartContract {
     let result = super.call(
       "supportsInterface",
       "supportsInterface(bytes4):(bool)",
-      [ethereum.Value.fromFixedBytes(interfaceId)],
+      [ethereum.Value.fromFixedBytes(interfaceId)]
     );
 
     return result[0].toBoolean();
@@ -1237,13 +1229,28 @@ export class StnxEmitter extends ethereum.SmartContract {
     let result = super.tryCall(
       "supportsInterface",
       "supportsInterface(bytes4):(bool)",
-      [ethereum.Value.fromFixedBytes(interfaceId)],
+      [ethereum.Value.fromFixedBytes(interfaceId)]
     );
     if (result.reverted) {
       return new ethereum.CallResult();
     }
     let value = result.value;
     return ethereum.CallResult.fromValue(value[0].toBoolean());
+  }
+
+  version(): string {
+    let result = super.call("version", "version():(string)", []);
+
+    return result[0].toString();
+  }
+
+  try_version(): ethereum.CallResult<string> {
+    let result = super.tryCall("version", "version():(string)", []);
+    if (result.reverted) {
+      return new ethereum.CallResult();
+    }
+    let value = result.value;
+    return ethereum.CallResult.fromValue(value[0].toString());
   }
 }
 
@@ -1608,20 +1615,16 @@ export class CreateDaoErc20Call__Inputs {
     return this._call.inputValues[14].value.toAddress();
   }
 
-  get lzImpl(): Address {
-    return this._call.inputValues[15].value.toAddress();
-  }
-
   get _isGovernanceActive(): boolean {
-    return this._call.inputValues[16].value.toBoolean();
+    return this._call.inputValues[15].value.toBoolean();
   }
 
   get isTransferable(): boolean {
-    return this._call.inputValues[17].value.toBoolean();
+    return this._call.inputValues[16].value.toBoolean();
   }
 
   get assetsStoredOnGnosis(): boolean {
-    return this._call.inputValues[18].value.toBoolean();
+    return this._call.inputValues[17].value.toBoolean();
   }
 }
 
@@ -1710,20 +1713,16 @@ export class CreateDaoErc721Call__Inputs {
     return this._call.inputValues[14].value.toAddress();
   }
 
-  get lzImpl(): Address {
-    return this._call.inputValues[15].value.toAddress();
-  }
-
   get _isGovernanceActive(): boolean {
-    return this._call.inputValues[16].value.toBoolean();
+    return this._call.inputValues[15].value.toBoolean();
   }
 
   get isTransferable(): boolean {
-    return this._call.inputValues[17].value.toBoolean();
+    return this._call.inputValues[16].value.toBoolean();
   }
 
   get assetsStoredOnGnosis(): boolean {
-    return this._call.inputValues[18].value.toBoolean();
+    return this._call.inputValues[17].value.toBoolean();
   }
 }
 
@@ -2453,6 +2452,36 @@ export class TransferGTCall__Outputs {
   _call: TransferGTCall;
 
   constructor(call: TransferGTCall) {
+    this._call = call;
+  }
+}
+
+export class UpdateContractVersionCall extends ethereum.Call {
+  get inputs(): UpdateContractVersionCall__Inputs {
+    return new UpdateContractVersionCall__Inputs(this);
+  }
+
+  get outputs(): UpdateContractVersionCall__Outputs {
+    return new UpdateContractVersionCall__Outputs(this);
+  }
+}
+
+export class UpdateContractVersionCall__Inputs {
+  _call: UpdateContractVersionCall;
+
+  constructor(call: UpdateContractVersionCall) {
+    this._call = call;
+  }
+
+  get _version(): string {
+    return this._call.inputValues[0].value.toString();
+  }
+}
+
+export class UpdateContractVersionCall__Outputs {
+  _call: UpdateContractVersionCall;
+
+  constructor(call: UpdateContractVersionCall) {
     this._call = call;
   }
 }
