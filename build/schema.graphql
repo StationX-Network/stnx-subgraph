@@ -22,6 +22,8 @@ type Station @entity {
   depositDeadline: BigInt!
   maxTokensPerUser: BigInt!
   depositTokenAddress: String!
+  transactionHash: String!
+  entity: String!
 }
 
 type User @entity {
@@ -34,6 +36,9 @@ type User @entity {
   timeStamp: BigInt! # uint256
   gtAmount: BigInt! # uint256
   isAdmin: Boolean! # bool
+  isActive: Boolean!
+  transactionHash: String!
+  entity: String!
 }
 
 type Deposit @entity {

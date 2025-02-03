@@ -335,6 +335,32 @@ export class Station extends Entity {
   set depositTokenAddress(value: string) {
     this.set("depositTokenAddress", Value.fromString(value));
   }
+
+  get transactionHash(): string {
+    let value = this.get("transactionHash");
+    if (!value || value.kind == ValueKind.NULL) {
+      throw new Error("Cannot return null for a required field.");
+    } else {
+      return value.toString();
+    }
+  }
+
+  set transactionHash(value: string) {
+    this.set("transactionHash", Value.fromString(value));
+  }
+
+  get entity(): string {
+    let value = this.get("entity");
+    if (!value || value.kind == ValueKind.NULL) {
+      throw new Error("Cannot return null for a required field.");
+    } else {
+      return value.toString();
+    }
+  }
+
+  set entity(value: string) {
+    this.set("entity", Value.fromString(value));
+  }
 }
 
 export class User extends Entity {
@@ -478,6 +504,45 @@ export class User extends Entity {
 
   set isAdmin(value: boolean) {
     this.set("isAdmin", Value.fromBoolean(value));
+  }
+
+  get isActive(): boolean {
+    let value = this.get("isActive");
+    if (!value || value.kind == ValueKind.NULL) {
+      return false;
+    } else {
+      return value.toBoolean();
+    }
+  }
+
+  set isActive(value: boolean) {
+    this.set("isActive", Value.fromBoolean(value));
+  }
+
+  get transactionHash(): string {
+    let value = this.get("transactionHash");
+    if (!value || value.kind == ValueKind.NULL) {
+      throw new Error("Cannot return null for a required field.");
+    } else {
+      return value.toString();
+    }
+  }
+
+  set transactionHash(value: string) {
+    this.set("transactionHash", Value.fromString(value));
+  }
+
+  get entity(): string {
+    let value = this.get("entity");
+    if (!value || value.kind == ValueKind.NULL) {
+      throw new Error("Cannot return null for a required field.");
+    } else {
+      return value.toString();
+    }
+  }
+
+  set entity(value: string) {
+    this.set("entity", Value.fromString(value));
   }
 }
 
