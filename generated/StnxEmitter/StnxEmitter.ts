@@ -79,15 +79,15 @@ export class ChangeRefundModuleMerkleRoot__Params {
     this._event = event;
   }
 
-  get _refundModule(): Address {
+  get refundModule(): Address {
     return this._event.parameters[0].value.toAddress();
   }
 
-  get _daoAddress(): Address {
+  get daoAddress(): Address {
     return this._event.parameters[1].value.toAddress();
   }
 
-  get _newMerkleRoot(): Bytes {
+  get newMerkleRoot(): Bytes {
     return this._event.parameters[2].value.toBytes();
   }
 }
@@ -137,28 +137,6 @@ export class CloseDeposit__Params {
 
   get closeTime(): BigInt {
     return this._event.parameters[1].value.toBigInt();
-  }
-}
-
-export class CreateCCDAO extends ethereum.Event {
-  get params(): CreateCCDAO__Params {
-    return new CreateCCDAO__Params(this);
-  }
-}
-
-export class CreateCCDAO__Params {
-  _event: CreateCCDAO;
-
-  constructor(event: CreateCCDAO) {
-    this._event = event;
-  }
-
-  get _daoAddress(): Address {
-    return this._event.parameters[0].value.toAddress();
-  }
-
-  get _chainIds(): Array<BigInt> {
-    return this._event.parameters[1].value.toBigIntArray();
   }
 }
 
@@ -385,16 +363,12 @@ export class DeployRefundModule__Params {
     return this._event.parameters[1].value.toAddress();
   }
 
-  get _daoAddress(): Address {
+  get _dao(): Address {
     return this._event.parameters[2].value.toAddress();
   }
 
   get _merkleRoot(): Bytes {
     return this._event.parameters[3].value.toBytes();
-  }
-
-  get _refundToken(): Address {
-    return this._event.parameters[4].value.toAddress();
   }
 }
 
@@ -461,12 +435,16 @@ export class FactoryCreated__Params {
     return this._event.parameters[1].value.toAddress();
   }
 
-  get _factory(): Address {
+  get _wrappedTokenAddress(): Address {
     return this._event.parameters[2].value.toAddress();
   }
 
-  get _emitter(): Address {
+  get _factory(): Address {
     return this._event.parameters[3].value.toAddress();
+  }
+
+  get _emitter(): Address {
+    return this._event.parameters[4].value.toAddress();
   }
 }
 
@@ -586,48 +564,6 @@ export class NewUser__Params {
   }
 }
 
-export class NewUserCC extends ethereum.Event {
-  get params(): NewUserCC__Params {
-    return new NewUserCC__Params(this);
-  }
-}
-
-export class NewUserCC__Params {
-  _event: NewUserCC;
-
-  constructor(event: NewUserCC) {
-    this._event = event;
-  }
-
-  get _daoAddress(): Address {
-    return this._event.parameters[0].value.toAddress();
-  }
-
-  get _depositor(): Address {
-    return this._event.parameters[1].value.toAddress();
-  }
-
-  get _depositTokenAddress(): Address {
-    return this._event.parameters[2].value.toAddress();
-  }
-
-  get _depositTokenAmount(): BigInt {
-    return this._event.parameters[3].value.toBigInt();
-  }
-
-  get _timeStamp(): BigInt {
-    return this._event.parameters[4].value.toBigInt();
-  }
-
-  get _gtToken(): BigInt {
-    return this._event.parameters[5].value.toBigInt();
-  }
-
-  get _isAdmin(): boolean {
-    return this._event.parameters[6].value.toBoolean();
-  }
-}
-
 export class RefundERC20DAO extends ethereum.Event {
   get params(): RefundERC20DAO__Params {
     return new RefundERC20DAO__Params(this);
@@ -641,28 +577,24 @@ export class RefundERC20DAO__Params {
     this._event = event;
   }
 
-  get _user(): Address {
+  get _dao(): Address {
     return this._event.parameters[0].value.toAddress();
   }
 
-  get _daoAddress(): Address {
+  get _refundModule(): Address {
     return this._event.parameters[1].value.toAddress();
   }
 
-  get _refundModule(): Address {
+  get _transferToken(): Address {
     return this._event.parameters[2].value.toAddress();
   }
 
-  get _transferToken(): Address {
-    return this._event.parameters[3].value.toAddress();
-  }
-
   get _burnAmount(): BigInt {
-    return this._event.parameters[4].value.toBigInt();
+    return this._event.parameters[3].value.toBigInt();
   }
 
   get _transferAmount(): BigInt {
-    return this._event.parameters[5].value.toBigInt();
+    return this._event.parameters[4].value.toBigInt();
   }
 }
 
@@ -679,28 +611,24 @@ export class RefundERC721DAO__Params {
     this._event = event;
   }
 
-  get _user(): Address {
+  get _dao(): Address {
     return this._event.parameters[0].value.toAddress();
   }
 
-  get _daoAddress(): Address {
+  get _refundModule(): Address {
     return this._event.parameters[1].value.toAddress();
   }
 
-  get _refundModule(): Address {
+  get _transferToken(): Address {
     return this._event.parameters[2].value.toAddress();
   }
 
-  get _transferToken(): Address {
-    return this._event.parameters[3].value.toAddress();
-  }
-
-  get _tokenId(): Array<BigInt> {
-    return this._event.parameters[4].value.toBigIntArray();
+  get _tokenId(): BigInt {
+    return this._event.parameters[3].value.toBigInt();
   }
 
   get _transferAmount(): BigInt {
-    return this._event.parameters[5].value.toBigInt();
+    return this._event.parameters[4].value.toBigInt();
   }
 }
 
@@ -857,36 +785,6 @@ export class StartDeposit__Params {
 
   get closeTime(): BigInt {
     return this._event.parameters[2].value.toBigInt();
-  }
-}
-
-export class TransferGT extends ethereum.Event {
-  get params(): TransferGT__Params {
-    return new TransferGT__Params(this);
-  }
-}
-
-export class TransferGT__Params {
-  _event: TransferGT;
-
-  constructor(event: TransferGT) {
-    this._event = event;
-  }
-
-  get _daoAddress(): Address {
-    return this._event.parameters[0].value.toAddress();
-  }
-
-  get _from(): Address {
-    return this._event.parameters[1].value.toAddress();
-  }
-
-  get _to(): Address {
-    return this._event.parameters[2].value.toAddress();
-  }
-
-  get _value(): BigInt {
-    return this._event.parameters[3].value.toBigInt();
   }
 }
 
@@ -1237,21 +1135,6 @@ export class StnxEmitter extends ethereum.SmartContract {
     let value = result.value;
     return ethereum.CallResult.fromValue(value[0].toBoolean());
   }
-
-  version(): string {
-    let result = super.call("version", "version():(string)", []);
-
-    return result[0].toString();
-  }
-
-  try_version(): ethereum.CallResult<string> {
-    let result = super.tryCall("version", "version():(string)", []);
-    if (result.reverted) {
-      return new ethereum.CallResult();
-    }
-    let value = result.value;
-    return ethereum.CallResult.fromValue(value[0].toString());
-  }
 }
 
 export class AirDropTokenCall extends ethereum.Call {
@@ -1500,40 +1383,6 @@ export class CloseDepositCall__Outputs {
   _call: CloseDepositCall;
 
   constructor(call: CloseDepositCall) {
-    this._call = call;
-  }
-}
-
-export class CreateCCDaoCall extends ethereum.Call {
-  get inputs(): CreateCCDaoCall__Inputs {
-    return new CreateCCDaoCall__Inputs(this);
-  }
-
-  get outputs(): CreateCCDaoCall__Outputs {
-    return new CreateCCDaoCall__Outputs(this);
-  }
-}
-
-export class CreateCCDaoCall__Inputs {
-  _call: CreateCCDaoCall;
-
-  constructor(call: CreateCCDaoCall) {
-    this._call = call;
-  }
-
-  get _dao(): Address {
-    return this._call.inputValues[0].value.toAddress();
-  }
-
-  get _chainIds(): Array<BigInt> {
-    return this._call.inputValues[1].value.toBigIntArray();
-  }
-}
-
-export class CreateCCDaoCall__Outputs {
-  _call: CreateCCDaoCall;
-
-  constructor(call: CreateCCDaoCall) {
     this._call = call;
   }
 }
@@ -1804,10 +1653,6 @@ export class DeployRefundModuleCall__Inputs {
   get _merkleRoot(): Bytes {
     return this._call.inputValues[3].value.toBytes();
   }
-
-  get _refundToken(): Address {
-    return this._call.inputValues[4].value.toAddress();
-  }
 }
 
 export class DeployRefundModuleCall__Outputs {
@@ -1931,8 +1776,12 @@ export class InitializeCall__Inputs {
     return this._call.inputValues[1].value.toAddress();
   }
 
-  get _factory(): Address {
+  get _wrappedTokenAddress(): Address {
     return this._call.inputValues[2].value.toAddress();
+  }
+
+  get _factory(): Address {
+    return this._call.inputValues[3].value.toAddress();
   }
 }
 
@@ -2078,60 +1927,6 @@ export class NewUserCall__Outputs {
   }
 }
 
-export class NewUserCCCall extends ethereum.Call {
-  get inputs(): NewUserCCCall__Inputs {
-    return new NewUserCCCall__Inputs(this);
-  }
-
-  get outputs(): NewUserCCCall__Outputs {
-    return new NewUserCCCall__Outputs(this);
-  }
-}
-
-export class NewUserCCCall__Inputs {
-  _call: NewUserCCCall;
-
-  constructor(call: NewUserCCCall) {
-    this._call = call;
-  }
-
-  get _daoAddress(): Address {
-    return this._call.inputValues[0].value.toAddress();
-  }
-
-  get _depositor(): Address {
-    return this._call.inputValues[1].value.toAddress();
-  }
-
-  get _depositTokenAddress(): Address {
-    return this._call.inputValues[2].value.toAddress();
-  }
-
-  get _depositTokenAmount(): BigInt {
-    return this._call.inputValues[3].value.toBigInt();
-  }
-
-  get _timeStamp(): BigInt {
-    return this._call.inputValues[4].value.toBigInt();
-  }
-
-  get _gtToken(): BigInt {
-    return this._call.inputValues[5].value.toBigInt();
-  }
-
-  get _isAdmin(): boolean {
-    return this._call.inputValues[6].value.toBoolean();
-  }
-}
-
-export class NewUserCCCall__Outputs {
-  _call: NewUserCCCall;
-
-  constructor(call: NewUserCCCall) {
-    this._call = call;
-  }
-}
-
 export class RefundERC20DAOCall extends ethereum.Call {
   get inputs(): RefundERC20DAOCall__Inputs {
     return new RefundERC20DAOCall__Inputs(this);
@@ -2149,28 +1944,24 @@ export class RefundERC20DAOCall__Inputs {
     this._call = call;
   }
 
-  get _user(): Address {
+  get _dao(): Address {
     return this._call.inputValues[0].value.toAddress();
   }
 
-  get _dao(): Address {
+  get _refundModule(): Address {
     return this._call.inputValues[1].value.toAddress();
   }
 
-  get _refundModule(): Address {
+  get _transferToken(): Address {
     return this._call.inputValues[2].value.toAddress();
   }
 
-  get _transferToken(): Address {
-    return this._call.inputValues[3].value.toAddress();
-  }
-
   get _burnAmount(): BigInt {
-    return this._call.inputValues[4].value.toBigInt();
+    return this._call.inputValues[3].value.toBigInt();
   }
 
   get _transferAmount(): BigInt {
-    return this._call.inputValues[5].value.toBigInt();
+    return this._call.inputValues[4].value.toBigInt();
   }
 }
 
@@ -2199,28 +1990,24 @@ export class RefundERC721DAOCall__Inputs {
     this._call = call;
   }
 
-  get _user(): Address {
+  get _dao(): Address {
     return this._call.inputValues[0].value.toAddress();
   }
 
-  get _dao(): Address {
+  get _refundModule(): Address {
     return this._call.inputValues[1].value.toAddress();
   }
 
-  get _refundModule(): Address {
+  get _transferToken(): Address {
     return this._call.inputValues[2].value.toAddress();
   }
 
-  get _transferToken(): Address {
-    return this._call.inputValues[3].value.toAddress();
-  }
-
-  get _tokenIds(): Array<BigInt> {
-    return this._call.inputValues[4].value.toBigIntArray();
+  get _tokenId(): BigInt {
+    return this._call.inputValues[3].value.toBigInt();
   }
 
   get _transferAmount(): BigInt {
-    return this._call.inputValues[5].value.toBigInt();
+    return this._call.inputValues[4].value.toBigInt();
   }
 }
 
@@ -2410,78 +2197,6 @@ export class StartDepositCall__Outputs {
   _call: StartDepositCall;
 
   constructor(call: StartDepositCall) {
-    this._call = call;
-  }
-}
-
-export class TransferGTCall extends ethereum.Call {
-  get inputs(): TransferGTCall__Inputs {
-    return new TransferGTCall__Inputs(this);
-  }
-
-  get outputs(): TransferGTCall__Outputs {
-    return new TransferGTCall__Outputs(this);
-  }
-}
-
-export class TransferGTCall__Inputs {
-  _call: TransferGTCall;
-
-  constructor(call: TransferGTCall) {
-    this._call = call;
-  }
-
-  get _dao(): Address {
-    return this._call.inputValues[0].value.toAddress();
-  }
-
-  get _from(): Address {
-    return this._call.inputValues[1].value.toAddress();
-  }
-
-  get _to(): Address {
-    return this._call.inputValues[2].value.toAddress();
-  }
-
-  get _value(): BigInt {
-    return this._call.inputValues[3].value.toBigInt();
-  }
-}
-
-export class TransferGTCall__Outputs {
-  _call: TransferGTCall;
-
-  constructor(call: TransferGTCall) {
-    this._call = call;
-  }
-}
-
-export class UpdateContractVersionCall extends ethereum.Call {
-  get inputs(): UpdateContractVersionCall__Inputs {
-    return new UpdateContractVersionCall__Inputs(this);
-  }
-
-  get outputs(): UpdateContractVersionCall__Outputs {
-    return new UpdateContractVersionCall__Outputs(this);
-  }
-}
-
-export class UpdateContractVersionCall__Inputs {
-  _call: UpdateContractVersionCall;
-
-  constructor(call: UpdateContractVersionCall) {
-    this._call = call;
-  }
-
-  get _version(): string {
-    return this._call.inputValues[0].value.toString();
-  }
-}
-
-export class UpdateContractVersionCall__Outputs {
-  _call: UpdateContractVersionCall;
-
-  constructor(call: UpdateContractVersionCall) {
     this._call = call;
   }
 }

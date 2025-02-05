@@ -23,6 +23,7 @@ type Station @entity {
   maxTokensPerUser: BigInt!
   depositTokenAddress: String!
   transactionHash: String!
+  blockNumber: BigInt!
   entity: String!
 }
 
@@ -38,6 +39,7 @@ type User @entity {
   isAdmin: Boolean! # bool
   isActive: Boolean!
   transactionHash: String!
+  blockNumber: BigInt!
   entity: String!
 }
 

@@ -4,10 +4,10 @@ schema:
 dataSources:
   - kind: ethereum
     name: StnxEmitter
-    network: mainnet
+    network: avalanche
     source:
-      address: "0xA0113FF935416ad6E2F0DD689329Ec13Fc062389"
-      startBlock: 18891639
+      address: "0xC6a25ee6b1BDDbAe875bdeB2b267314453d9a96B"
+      startBlock: 43636865
       abi: StnxEmitter
     mapping:
       kind: ethereum/events
@@ -18,13 +18,13 @@ dataSources:
         - User
       abis:
         - name: StnxEmitter
-          file: ./abis/StnxEmitter-base.json
+          file: ./abis/StnxEmitter.json
       eventHandlers:
         - event: Deposited(indexed address,indexed address,indexed address,uint256,uint256,uint256,uint256)
           handler: handleDeposit
-        - event: CreateDaoErc20(indexed address,indexed address,string,string,uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint256,address,address,address,bool,bool,bool)
+        - event: CreateDaoErc20(indexed address,indexed address,string,string,uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint256,address,address,address,address,bool,bool,bool)
           handler: handleCreateDaoErc20
-        - event: CreateDaoErc721(indexed address,indexed address,string,string,string,uint256,uint256,uint256,uint256,uint256,uint256,uint256,address,address,address,bool,bool,bool)
+        - event: CreateDaoErc721(indexed address,indexed address,string,string,string,uint256,uint256,uint256,uint256,uint256,uint256,uint256,address,address,address,address,bool,bool,bool)
           handler: handleCreateDaoErc721
         - event: NewUser(indexed address,indexed address,indexed address,uint256,uint256,uint256,bool)
           handler: handleNewUser
@@ -34,10 +34,10 @@ dataSources:
           handler: handleMinMaxDepositAmt
         - event: UpdatePricePerToken(indexed address,uint256)
           handler: handlePricePerToken
-        - event: RefundERC20DAO(address,address,address,address,uint256,uint256)
-          handler: handleRefundERC20DAO
-        - event: RefundERC721DAO(address,address,address,address,uint256[],uint256)
-          handler: handleRefundERC721DAO
+        # - event: RefundERC20DAO(address,address,address,address,uint256,uint256)
+        #   handler: handleRefundERC20DAO
+        # - event: RefundERC721DAO(address,address,address,address,uint256[],uint256)
+        #   handler: handleRefundERC721DAO
         - event: StartDeposit(indexed address,uint256,uint256)
           handler: handleStartDeposit
         - event: ChangedSigners(indexed address,indexed address,indexed bool)

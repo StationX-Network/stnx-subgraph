@@ -1,0 +1,45 @@
+specVersion: 0.0.4
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: StnxEmitter
+    network: base
+    source:
+      address: "0x8Ab4719053aFc9BCeE95331F63bcE31257CE5172"
+      startBlock: 3816881
+      abi: StnxEmitter
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - Station
+        - User
+      abis:
+        - name: StnxEmitter
+          file: ./abis/StnxEmitter-base.json
+      eventHandlers:
+        - event: Deposited(indexed address,indexed address,indexed address,uint256,uint256,uint256,uint256)
+          handler: handleDeposit
+        - event: CreateDaoErc20(indexed address,indexed address,string,string,uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint256,address,address,address,bool,bool,bool)
+          handler: handleCreateDaoErc20
+        - event: CreateDaoErc721(indexed address,indexed address,string,string,string,uint256,uint256,uint256,uint256,uint256,uint256,uint256,address,address,address,bool,bool,bool)
+          handler: handleCreateDaoErc721
+        - event: NewUser(indexed address,indexed address,indexed address,uint256,uint256,uint256,bool)
+          handler: handleNewUser
+        - event: UpdateDistributionAmount(indexed address,uint256)
+          handler: handleDisributionAmount
+        - event: UpdateMinMaxDeposit(indexed address,uint256,uint256)
+          handler: handleMinMaxDepositAmt
+        - event: UpdatePricePerToken(indexed address,uint256)
+          handler: handlePricePerToken
+        # - event: RefundERC20DAO(address,address,address,address,uint256,uint256)
+        #   handler: handleRefundERC20DAO
+        # - event: RefundERC721DAO(address,address,address,address,uint256[],uint256)
+        #   handler: handleRefundERC721DAO
+        - event: StartDeposit(indexed address,uint256,uint256)
+          handler: handleStartDeposit
+        - event: ChangedSigners(indexed address,indexed address,indexed bool)
+          handler: handleChangedSigners
+      file: ./src/stnx-emitter.ts

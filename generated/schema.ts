@@ -349,6 +349,19 @@ export class Station extends Entity {
     this.set("transactionHash", Value.fromString(value));
   }
 
+  get blockNumber(): BigInt {
+    let value = this.get("blockNumber");
+    if (!value || value.kind == ValueKind.NULL) {
+      throw new Error("Cannot return null for a required field.");
+    } else {
+      return value.toBigInt();
+    }
+  }
+
+  set blockNumber(value: BigInt) {
+    this.set("blockNumber", Value.fromBigInt(value));
+  }
+
   get entity(): string {
     let value = this.get("entity");
     if (!value || value.kind == ValueKind.NULL) {
@@ -530,6 +543,19 @@ export class User extends Entity {
 
   set transactionHash(value: string) {
     this.set("transactionHash", Value.fromString(value));
+  }
+
+  get blockNumber(): BigInt {
+    let value = this.get("blockNumber");
+    if (!value || value.kind == ValueKind.NULL) {
+      throw new Error("Cannot return null for a required field.");
+    } else {
+      return value.toBigInt();
+    }
+  }
+
+  set blockNumber(value: BigInt) {
+    this.set("blockNumber", Value.fromBigInt(value));
   }
 
   get entity(): string {
