@@ -14,7 +14,7 @@ import {
 import { createErc20Dao, createErc721Dao } from "./createDao";
 import { createNewUser } from "./user";
 import { updatePricePerToken, updateDistributionAmount } from "./updateRaise";
-import { newDeposit, startDeposit } from "./deposit";
+import { startDeposit } from "./deposit";
 import { updateMinMax } from "./updateMinMaxAmt";
 // import { refundErc20, refundErc721 } from "./refund";
 import { changeSigners } from "./changeSigners";
@@ -41,9 +41,9 @@ export function handleDisributionAmount(
   updateDistributionAmount(event);
 }
 
-export function handleDeposit(event: DepositedEvent): void {
-  newDeposit(event);
-}
+// export function handleDeposit(event: DepositedEvent): void {
+//   newDeposit(event);
+// }
 
 export function handleMinMaxDepositAmt(event: UpdateMinMaxDepositEvent): void {
   updateMinMax(event);

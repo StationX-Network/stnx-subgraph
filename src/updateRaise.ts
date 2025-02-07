@@ -11,7 +11,7 @@ export function updatePricePerToken(event: UpdatePricePerTokenEvent): void {
   let station = Station.load(daoAddress);
   if (!station) return;
 
-  station.pricePerToken = event.params._amount;
+  station.pricePerToken = event.params._amount.toString();
   station.transactionHash = event.transaction.hash.toHex();
   station.blockNumber = event.block.number;
   station.save();
@@ -27,13 +27,14 @@ export function updateDistributionAmount(
 
   // Ensure that pricePerToken and other properties are initialized and not null
   if (!station.pricePerToken) {
-    station.pricePerToken = BigInt.fromI32(1); // Or some default value
+    station.pricePerToken = BigInt.fromI32(1).toString(); // Or some default value
   }
 
-  station.distributionAmount = event.params._amount;
+  station.distributionAmount = event.params._amount.toString();
   station.raiseAmount = event.params._amount
-    .times(station.pricePerToken)
-    .div(BigInt.fromI32(10).pow(18));
+    .times(BigInt.fromString(station.pricePerToken))
+    .div(BigInt.fromI32(10).pow(18))
+    .toString();
   station.transactionHash = event.transaction.hash.toHex();
 
   // Save the updated entity

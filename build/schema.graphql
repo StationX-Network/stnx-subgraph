@@ -9,18 +9,18 @@ type Station @entity {
   imageUrl: String! #string
   isGtTransferable: Boolean! # bool
   isGovernanceActive: Boolean!
-  membersCount: BigInt!
-  timeStamp: BigInt!
-  totalAmountRaised: BigInt!
-  distributionAmount: BigInt!
-  pricePerToken: BigInt!
-  quorum: BigInt!
-  threshold: BigInt!
-  raiseAmount: BigInt!
-  minDepositAmount: BigInt!
-  maxDepositAmount: BigInt!
-  depositDeadline: BigInt!
-  maxTokensPerUser: BigInt!
+  membersCount: String!
+  timeStamp: String!
+  totalAmountRaised: String!
+  distributionAmount: String!
+  pricePerToken: String!
+  quorum: String!
+  threshold: String!
+  raiseAmount: String!
+  minDepositAmount: String!
+  maxDepositAmount: String!
+  depositDeadline: String!
+  maxTokensPerUser: String!
   depositTokenAddress: String!
   transactionHash: String!
   blockNumber: BigInt!
@@ -33,9 +33,9 @@ type User @entity {
   daoName: String! # string
   userAddress: String! # address
   tokenAddress: String! # address
-  depositAmount: BigInt! # uint256
-  timeStamp: BigInt! # uint256
-  gtAmount: BigInt! # uint256
+  depositAmount: String! # uint256
+  timeStamp: String! # uint256
+  gtAmount: String! # uint256
   isAdmin: Boolean! # bool
   isActive: Boolean!
   transactionHash: String!
@@ -43,13 +43,13 @@ type User @entity {
   entity: String!
 }
 
-type Deposit @entity {
-  id: ID!
-  daoAddress: String!
-  depositor: String!
-  depositTokenAddress: String!
-  amount: BigInt!
-  timeStamp: BigInt!
-  ownerFee: BigInt!
-  adminShare: BigInt!
-}
+# type Deposit @entity {
+#   id: ID!
+#   daoAddress: String!
+#   depositor: String!
+#   depositTokenAddress: String!
+#   amount: String!
+#   timeStamp: String!
+#   ownerFee: String!
+#   adminShare: String!
+# }

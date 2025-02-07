@@ -20,8 +20,8 @@ dataSources:
         - name: StnxEmitter
           file: ./abis/StnxEmitter.json
       eventHandlers:
-        - event: Deposited(indexed address,indexed address,indexed address,uint256,uint256,uint256,uint256)
-          handler: handleDeposit
+        # - event: Deposited(indexed address,indexed address,indexed address,uint256,uint256,uint256,uint256)
+        #   handler: handleDeposit
         - event: CreateDaoErc20(indexed address,indexed address,string,string,uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint256,address,address,address,address,bool,bool,bool)
           handler: handleCreateDaoErc20
         - event: CreateDaoErc721(indexed address,indexed address,string,string,string,uint256,uint256,uint256,uint256,uint256,uint256,uint256,address,address,address,address,bool,bool,bool)

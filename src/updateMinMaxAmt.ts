@@ -6,8 +6,8 @@ export function updateMinMax(event: UpdateMinMaxDepositEvent): void {
   let station = Station.load(daoAddress);
   if (!station) return;
 
-  station.minDepositAmount = event.params._minDeposit;
-  station.maxDepositAmount = event.params._maxDeposit;
+  station.minDepositAmount = event.params._minDeposit.toString();
+  station.maxDepositAmount = event.params._maxDeposit.toString();
   station.transactionHash = event.transaction.hash.toHex();
   station.blockNumber = event.block.number;
   station.save();

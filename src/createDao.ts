@@ -18,20 +18,23 @@ export function createErc20Dao(event: CreateDaoErc20Event): void {
   station.tokenType = "erc20";
   station.isGtTransferable = event.params.isTransferable;
   station.isGovernanceActive = event.params.isGovernanceActive;
-  station.membersCount = BigInt.fromI32(0);
-  station.totalAmountRaised = BigInt.fromI32(0);
-  station.timeStamp = event.block.timestamp;
-  station.distributionAmount = event.params.distributionAmount;
+  station.membersCount = BigInt.fromI32(0).toString();
+  station.totalAmountRaised = BigInt.fromI32(0).toString();
+  station.timeStamp = event.block.timestamp.toString();
+  station.distributionAmount = event.params.distributionAmount.toString();
   station.raiseAmount = event.params.distributionAmount
     .times(event.params.pricePerToken)
-    .div(BigInt.fromI32(10).pow(18));
-  station.pricePerToken = event.params.pricePerToken;
-  station.quorum = event.params.quorum.div(BigInt.fromI32(100));
-  station.threshold = event.params.threshold.div(BigInt.fromI32(100));
-  station.minDepositAmount = event.params.minDeposit;
-  station.maxDepositAmount = event.params.maxDeposit;
-  station.depositDeadline = event.params._days;
-  station.maxTokensPerUser = BigInt.fromI32(0);
+    .div(BigInt.fromI32(10).pow(18))
+    .toString();
+  station.pricePerToken = event.params.pricePerToken.toString();
+  station.quorum = event.params.quorum.div(BigInt.fromI32(100)).toString();
+  station.threshold = event.params.threshold
+    .div(BigInt.fromI32(100))
+    .toString();
+  station.minDepositAmount = event.params.minDeposit.toString();
+  station.maxDepositAmount = event.params.maxDeposit.toString();
+  station.depositDeadline = event.params._days.toString();
+  station.maxTokensPerUser = BigInt.fromI32(0).toString();
   station.depositTokenAddress = event.params.depositTokenAddress
     ? event.params.depositTokenAddress.toHex()
     : "";
@@ -52,20 +55,23 @@ export function createErc721Dao(event: CreateDaoErc721Event): void {
   station.tokenType = "erc721";
   station.isGtTransferable = event.params.isTransferable;
   station.isGovernanceActive = event.params.isGovernanceActive;
-  station.membersCount = BigInt.fromI32(0);
-  station.totalAmountRaised = BigInt.fromI32(0);
-  station.timeStamp = event.block.timestamp;
-  station.distributionAmount = event.params.distributionAmount;
+  station.membersCount = BigInt.fromI32(0).toString();
+  station.totalAmountRaised = BigInt.fromI32(0).toString();
+  station.timeStamp = event.block.timestamp.toString();
+  station.distributionAmount = event.params.distributionAmount.toString();
   station.raiseAmount = event.params.distributionAmount
     .times(event.params.pricePerToken)
-    .div(BigInt.fromI32(10).pow(18));
-  station.pricePerToken = event.params.pricePerToken;
-  station.quorum = event.params.quorum.div(BigInt.fromI32(100));
-  station.threshold = event.params.threshold.div(BigInt.fromI32(100));
-  station.minDepositAmount = BigInt.fromI32(0);
-  station.maxDepositAmount = BigInt.fromI32(0);
-  station.depositDeadline = event.params._days;
-  station.maxTokensPerUser = event.params.maxTokensPerUser;
+    .div(BigInt.fromI32(10).pow(18))
+    .toString();
+  station.pricePerToken = event.params.pricePerToken.toString();
+  station.quorum = event.params.quorum.div(BigInt.fromI32(100)).toString();
+  station.threshold = event.params.threshold
+    .div(BigInt.fromI32(100))
+    .toString();
+  station.minDepositAmount = BigInt.fromI32(0).toString();
+  station.maxDepositAmount = BigInt.fromI32(0).toString();
+  station.depositDeadline = event.params._days.toString();
+  station.maxTokensPerUser = event.params.maxTokensPerUser.toString();
   station.depositTokenAddress = event.params.depositTokenAddress
     ? event.params.depositTokenAddress.toHex()
     : "";

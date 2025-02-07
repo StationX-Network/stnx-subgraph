@@ -4,10 +4,10 @@ schema:
 dataSources:
   - kind: ethereum
     name: StnxEmitter
-    network: scroll
+    network: bsc
     source:
-      address: "0xA016957325e1dfCAcEcA8D760DD8634F34617b7c"
-      startBlock: 5831043
+      address: "0xdc31236655CCc361Ba4E3c0f07aAEBaE0BDbA72c"
+      startBlock: 43310593
       abi: StnxEmitter
     mapping:
       kind: ethereum/events
@@ -18,11 +18,8 @@ dataSources:
         - User
       abis:
         - name: StnxEmitter
-          file: StnxEmitter/abis/StnxEmitter-base.json
+          file: StnxEmitter/abis/StnxEmitter-bsc.json
       eventHandlers:
-        - event: Deposited(indexed address,indexed address,indexed
-            address,uint256,uint256,uint256,uint256)
-          handler: handleDeposit
         - event: CreateDaoErc20(indexed address,indexed
             address,string,string,uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint256,address,address,address,bool,bool,bool)
           handler: handleCreateDaoErc20

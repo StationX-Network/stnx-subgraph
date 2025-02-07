@@ -23,9 +23,9 @@ export function changeSigners(event: ChangedSignersEvent): void {
       user.tokenAddress = Bytes.fromHexString(
         station.depositTokenAddress
       ).toHexString();
-      user.depositAmount = BigInt.fromI32(0);
-      user.timeStamp = event.block.timestamp;
-      user.gtAmount = BigInt.fromI32(0);
+      user.depositAmount = BigInt.fromI32(0).toString();
+      user.timeStamp = event.block.timestamp.toString();
+      user.gtAmount = BigInt.fromI32(0).toString();
       user.isAdmin = true;
       user.daoName = station.name;
       user.isActive = true;
@@ -37,7 +37,7 @@ export function changeSigners(event: ChangedSignersEvent): void {
     user.save();
   } else {
     if (user) {
-      if (user.gtAmount == BigInt.fromI32(0)) {
+      if (BigInt.fromString(user.gtAmount) == BigInt.fromI32(0)) {
         user.isActive = false;
       } else {
         user.isAdmin = false;

@@ -1,0 +1,143 @@
+name: stnx-events-pl-prod-v3
+version: 3
+resource_size: m
+from_snapshot:
+  id: snapshot-cm6syrrwfcvjo01z5c4gh7peq
+  created_at: 1738823763416
+apiVersion: 3
+sources:
+  source_1:
+    type: subgraph_entity
+    subgraphs:
+      - name: station-eth
+        version: v6
+    name: user
+  source_2:
+    type: subgraph_entity
+    subgraphs:
+      - name: station-eth
+        version: v6
+    name: station
+  source_3:
+    type: subgraph_entity
+    subgraphs:
+      - name: station-base
+        version: v5
+    name: user
+  source_4:
+    type: subgraph_entity
+    subgraphs:
+      - name: station-base
+        version: v5
+    name: station
+  source_5:
+    type: subgraph_entity
+    subgraphs:
+      - name: station-linea
+        version: v2
+    name: user
+  source_6:
+    type: subgraph_entity
+    subgraphs:
+      - name: station-linea
+        version: v2
+    name: station
+  source_7:
+    type: subgraph_entity
+    subgraphs:
+      - name: station-bsc
+        version: v4
+    name: user
+  source_8:
+    type: subgraph_entity
+    subgraphs:
+      - name: station-bsc
+        version: v4
+    name: station
+  source_9:
+    type: subgraph_entity
+    subgraphs:
+      - name: station-polygon
+        version: v3
+    name: user
+  source_10:
+    type: subgraph_entity
+    subgraphs:
+      - name: station-polygon
+        version: v3
+    name: station
+  source_11:
+    type: subgraph_entity
+    subgraphs:
+      - name: station-arbitrum
+        version: v2
+    name: user
+  source_12:
+    type: subgraph_entity
+    subgraphs:
+      - name: station-arbitrum
+        version: v2
+    name: station
+transforms: {}
+sinks:
+  sink_1:
+    url: https://sqs.us-east-1.amazonaws.com/010928201169/goldsky-subgraph-sink
+    type: sqs
+    secret_name: SQS_SECRET_V1
+    from: source_1
+  sink_2:
+    url: https://sqs.us-east-1.amazonaws.com/010928201169/goldsky-subgraph-sink
+    type: sqs
+    secret_name: SQS_SECRET_V1
+    from: source_2
+  sink_3:
+    url: https://sqs.us-east-1.amazonaws.com/010928201169/goldsky-subgraph-sink
+    type: sqs
+    secret_name: SQS_SECRET_V1
+    from: source_3
+  sink_4:
+    url: https://sqs.us-east-1.amazonaws.com/010928201169/goldsky-subgraph-sink
+    type: sqs
+    secret_name: SQS_SECRET_V1
+    from: source_4
+  sink_5:
+    url: https://sqs.us-east-1.amazonaws.com/010928201169/goldsky-subgraph-sink
+    type: sqs
+    secret_name: SQS_SECRET_V1
+    from: source_5
+  sink_6:
+    url: https://sqs.us-east-1.amazonaws.com/010928201169/goldsky-subgraph-sink
+    type: sqs
+    secret_name: SQS_SECRET_V1
+    from: source_6
+  sink_7:
+    url: https://sqs.us-east-1.amazonaws.com/010928201169/goldsky-subgraph-sink
+    type: sqs
+    secret_name: SQS_SECRET_V1
+    from: source_7
+  sink_8:
+    url: https://sqs.us-east-1.amazonaws.com/010928201169/goldsky-subgraph-sink
+    type: sqs
+    secret_name: SQS_SECRET_V1
+    from: source_8
+  sink_9:
+    url: https://sqs.us-east-1.amazonaws.com/010928201169/goldsky-subgraph-sink
+    type: sqs
+    secret_name: SQS_SECRET_V1
+    from: source_9
+  sink_10:
+    url: https://sqs.us-east-1.amazonaws.com/010928201169/goldsky-subgraph-sink
+    type: sqs
+    secret_name: SQS_SECRET_V1
+    from: source_10
+  sink_11:
+    url: https://sqs.us-east-1.amazonaws.com/010928201169/goldsky-subgraph-sink
+    type: sqs
+    secret_name: SQS_SECRET_V1
+    from: source_11
+  sink_12:
+    url: https://sqs.us-east-1.amazonaws.com/010928201169/goldsky-subgraph-sink
+    type: sqs
+    secret_name: SQS_SECRET_V1
+    from: source_12
+dedicated_egress_ip: false
