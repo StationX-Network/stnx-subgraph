@@ -10,73 +10,73 @@ sources:
     type: subgraph_entity
     subgraphs:
       - name: station-eth
-        version: v6
+        version: v8
     name: user
   source_2:
     type: subgraph_entity
     subgraphs:
       - name: station-eth
-        version: v6
+        version: v8
     name: station
   source_3:
     type: subgraph_entity
     subgraphs:
       - name: station-base
-        version: v5
+        version: v8
     name: user
   source_4:
     type: subgraph_entity
     subgraphs:
       - name: station-base
-        version: v5
+        version: v8
     name: station
   source_5:
     type: subgraph_entity
     subgraphs:
       - name: station-linea
-        version: v2
+        version: v8
     name: user
   source_6:
     type: subgraph_entity
     subgraphs:
       - name: station-linea
-        version: v2
+        version: v8
     name: station
   source_7:
     type: subgraph_entity
     subgraphs:
       - name: station-bsc
-        version: v4
+        version: v8
     name: user
   source_8:
     type: subgraph_entity
     subgraphs:
       - name: station-bsc
-        version: v4
+        version: v8
     name: station
   source_9:
     type: subgraph_entity
     subgraphs:
       - name: station-polygon
-        version: v3
+        version: v8
     name: user
   source_10:
     type: subgraph_entity
     subgraphs:
       - name: station-polygon
-        version: v3
+        version: v8
     name: station
   source_11:
     type: subgraph_entity
     subgraphs:
       - name: station-arbitrum
-        version: v2
+        version: v8
     name: user
   source_12:
     type: subgraph_entity
     subgraphs:
       - name: station-arbitrum
-        version: v2
+        version: v8
     name: station
 transforms: {}
 sinks:

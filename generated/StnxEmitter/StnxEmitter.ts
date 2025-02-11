@@ -334,6 +334,80 @@ export class CreateDaoErc721__Params {
   }
 }
 
+export class DaoLegalFeesCollected extends ethereum.Event {
+  get params(): DaoLegalFeesCollected__Params {
+    return new DaoLegalFeesCollected__Params(this);
+  }
+}
+
+export class DaoLegalFeesCollected__Params {
+  _event: DaoLegalFeesCollected;
+
+  constructor(event: DaoLegalFeesCollected) {
+    this._event = event;
+  }
+
+  get _daoAddress(): Address {
+    return this._event.parameters[0].value.toAddress();
+  }
+
+  get _user(): Address {
+    return this._event.parameters[1].value.toAddress();
+  }
+
+  get _feeAmount(): BigInt {
+    return this._event.parameters[2].value.toBigInt();
+  }
+}
+
+export class DaoLegalPlanEnabled extends ethereum.Event {
+  get params(): DaoLegalPlanEnabled__Params {
+    return new DaoLegalPlanEnabled__Params(this);
+  }
+}
+
+export class DaoLegalPlanEnabled__Params {
+  _event: DaoLegalPlanEnabled;
+
+  constructor(event: DaoLegalPlanEnabled) {
+    this._event = event;
+  }
+
+  get _daoAddress(): Address {
+    return this._event.parameters[0].value.toAddress();
+  }
+
+  get _planId(): BigInt {
+    return this._event.parameters[1].value.toBigInt();
+  }
+}
+
+export class DaoPlatformFeesCollected extends ethereum.Event {
+  get params(): DaoPlatformFeesCollected__Params {
+    return new DaoPlatformFeesCollected__Params(this);
+  }
+}
+
+export class DaoPlatformFeesCollected__Params {
+  _event: DaoPlatformFeesCollected;
+
+  constructor(event: DaoPlatformFeesCollected) {
+    this._event = event;
+  }
+
+  get _daoAddress(): Address {
+    return this._event.parameters[0].value.toAddress();
+  }
+
+  get _user(): Address {
+    return this._event.parameters[1].value.toAddress();
+  }
+
+  get _feeAmount(): BigInt {
+    return this._event.parameters[2].value.toBigInt();
+  }
+}
+
 export class DefineContracts extends ethereum.Event {
   get params(): DefineContracts__Params {
     return new DefineContracts__Params(this);
@@ -1730,6 +1804,116 @@ export class CreateDaoErc721Call__Outputs {
   _call: CreateDaoErc721Call;
 
   constructor(call: CreateDaoErc721Call) {
+    this._call = call;
+  }
+}
+
+export class DaoLegalFeesCollectedCall extends ethereum.Call {
+  get inputs(): DaoLegalFeesCollectedCall__Inputs {
+    return new DaoLegalFeesCollectedCall__Inputs(this);
+  }
+
+  get outputs(): DaoLegalFeesCollectedCall__Outputs {
+    return new DaoLegalFeesCollectedCall__Outputs(this);
+  }
+}
+
+export class DaoLegalFeesCollectedCall__Inputs {
+  _call: DaoLegalFeesCollectedCall;
+
+  constructor(call: DaoLegalFeesCollectedCall) {
+    this._call = call;
+  }
+
+  get _dao(): Address {
+    return this._call.inputValues[0].value.toAddress();
+  }
+
+  get _user(): Address {
+    return this._call.inputValues[1].value.toAddress();
+  }
+
+  get _feeAmount(): BigInt {
+    return this._call.inputValues[2].value.toBigInt();
+  }
+}
+
+export class DaoLegalFeesCollectedCall__Outputs {
+  _call: DaoLegalFeesCollectedCall;
+
+  constructor(call: DaoLegalFeesCollectedCall) {
+    this._call = call;
+  }
+}
+
+export class DaoLegalPlanEnabledCall extends ethereum.Call {
+  get inputs(): DaoLegalPlanEnabledCall__Inputs {
+    return new DaoLegalPlanEnabledCall__Inputs(this);
+  }
+
+  get outputs(): DaoLegalPlanEnabledCall__Outputs {
+    return new DaoLegalPlanEnabledCall__Outputs(this);
+  }
+}
+
+export class DaoLegalPlanEnabledCall__Inputs {
+  _call: DaoLegalPlanEnabledCall;
+
+  constructor(call: DaoLegalPlanEnabledCall) {
+    this._call = call;
+  }
+
+  get _dao(): Address {
+    return this._call.inputValues[0].value.toAddress();
+  }
+
+  get _planId(): BigInt {
+    return this._call.inputValues[1].value.toBigInt();
+  }
+}
+
+export class DaoLegalPlanEnabledCall__Outputs {
+  _call: DaoLegalPlanEnabledCall;
+
+  constructor(call: DaoLegalPlanEnabledCall) {
+    this._call = call;
+  }
+}
+
+export class DaoPlatformFeesCollectedCall extends ethereum.Call {
+  get inputs(): DaoPlatformFeesCollectedCall__Inputs {
+    return new DaoPlatformFeesCollectedCall__Inputs(this);
+  }
+
+  get outputs(): DaoPlatformFeesCollectedCall__Outputs {
+    return new DaoPlatformFeesCollectedCall__Outputs(this);
+  }
+}
+
+export class DaoPlatformFeesCollectedCall__Inputs {
+  _call: DaoPlatformFeesCollectedCall;
+
+  constructor(call: DaoPlatformFeesCollectedCall) {
+    this._call = call;
+  }
+
+  get _dao(): Address {
+    return this._call.inputValues[0].value.toAddress();
+  }
+
+  get _user(): Address {
+    return this._call.inputValues[1].value.toAddress();
+  }
+
+  get _feeAmount(): BigInt {
+    return this._call.inputValues[2].value.toBigInt();
+  }
+}
+
+export class DaoPlatformFeesCollectedCall__Outputs {
+  _call: DaoPlatformFeesCollectedCall;
+
+  constructor(call: DaoPlatformFeesCollectedCall) {
     this._call = call;
   }
 }
