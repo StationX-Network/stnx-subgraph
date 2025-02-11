@@ -1,4 +1,4 @@
-name: stnx-events-pl-prod-v5
+name: stnx-events-pl-prod-v7
 version: 3
 resource_size: m
 from_snapshot:
@@ -78,6 +78,18 @@ sources:
       - name: station-arbitrum
         version: v8
     name: station
+  source_13:
+    type: subgraph_entity
+    subgraphs:
+      - name: station-bera
+        version: v8
+    name: user
+  source_14:
+    type: subgraph_entity
+    subgraphs:
+      - name: station-bera
+        version: v8
+    name: station
 transforms: {}
 sinks:
   sink_1:
@@ -140,4 +152,14 @@ sinks:
     type: sqs
     secret_name: SQS_SECRET_V1
     from: source_12
+  sink_13:
+    url: https://sqs.us-east-1.amazonaws.com/010928201169/goldsky-subgraph-sink
+    type: sqs
+    secret_name: SQS_SECRET_V1
+    from: source_13
+  sink_14:
+    url: https://sqs.us-east-1.amazonaws.com/010928201169/goldsky-subgraph-sink
+    type: sqs
+    secret_name: SQS_SECRET_V1
+    from: source_14
 dedicated_egress_ip: false
