@@ -1,0 +1,42 @@
+specVersion: 0.0.4
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum
+    name: StnxEmitter
+    network: matic
+    source:
+      address: "0xE313ce03ca26F4AFb3F81160Cd6E3BDA1373981E"
+      startBlock: 42852563
+      abi: StnxEmitter
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - Station
+        - User
+      abis:
+        - name: StnxEmitter
+          file: StnxEmitter/abis/StnxEmitter-polygon.json
+      eventHandlers:
+        - event: CreateDaoErc20(indexed address,indexed
+            address,string,string,uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint256,address,address,address,bool,bool,bool)
+          handler: handleCreateDaoErc20
+        - event: CreateDaoErc721(indexed address,indexed
+            address,string,string,string,uint256,uint256,uint256,uint256,uint256,uint256,uint256,address,address,address,bool,bool,bool)
+          handler: handleCreateDaoErc721
+        - event: NewUser(indexed address,indexed address,indexed
+            address,uint256,uint256,uint256,bool)
+          handler: handleNewUser
+        - event: UpdateDistributionAmount(indexed address,uint256)
+          handler: handleDisributionAmount
+        - event: UpdateMinMaxDeposit(indexed address,uint256,uint256)
+          handler: handleMinMaxDepositAmt
+        - event: UpdatePricePerToken(indexed address,uint256)
+          handler: handlePricePerToken
+        - event: StartDeposit(indexed address,uint256,uint256)
+          handler: handleStartDeposit
+        - event: ChangedSigners(indexed address,indexed address,indexed bool)
+          handler: handleChangedSigners
+      file: StnxEmitter/StnxEmitter.wasm

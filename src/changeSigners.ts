@@ -44,17 +44,15 @@ export function changeSigners(event: ChangedSignersEvent): void {
         station.membersCount = BigInt.fromString(station.membersCount)
           .minus(BigInt.fromI32(1))
           .toString();
-      } else {
-        user.isAdmin = false;
+        station.transactionHash = event.transaction.hash.toHexString();
+        station.blockNumber = event.block.number;
+        station.save();
       }
 
+      user.isAdmin = false;
       user.transactionHash = event.transaction.hash.toHexString();
       user.blockNumber = event.block.number;
       user.save();
-
-      station.transactionHash = event.transaction.hash.toHexString();
-      station.blockNumber = event.block.number;
-      station.save();
     }
   }
 }

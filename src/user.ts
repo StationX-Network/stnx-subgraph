@@ -8,7 +8,6 @@ export function createNewUser(event: NewUserEvent): void {
   let id =
     event.params._depositor.toHex() + "-" + event.params._daoAddress.toHex();
   let user = User.load(id);
-  const isNewUser = !user;
 
   let daoAddress = event.params._daoAddress.toHex();
   let station = Station.load(daoAddress);
