@@ -1,48 +1,55 @@
 type Station @entity {
   id: ID!
-  ownerAddress: Bytes! # address
-  daoAddress: Bytes! # address
-  gnosisAddress: Bytes! #address
+  ownerAddress: String! # address
+  daoAddress: String! # address
+  gnosisAddress: String! #address
   name: String! # string
   symbol: String! # string
   tokenType: String! #string
   imageUrl: String! #string
   isGtTransferable: Boolean! # bool
   isGovernanceActive: Boolean!
-  membersCount: BigInt!
-  timeStamp: BigInt!
-  totalAmountRaised: BigInt!
-  distributionAmount: BigInt!
-  pricePerToken: BigInt!
-  quorum: BigInt!
-  threshold: BigInt!
-  raiseAmount: BigInt!
-  minDepositAmount: BigInt!
-  maxDepositAmount: BigInt!
-  depositDeadline: BigInt!
-  maxTokensPerUser: BigInt!
+  membersCount: String!
+  timeStamp: String!
+  totalAmountRaised: String!
+  distributionAmount: String!
+  pricePerToken: String!
+  quorum: String!
+  threshold: String!
+  raiseAmount: String!
+  minDepositAmount: String!
+  maxDepositAmount: String!
+  depositDeadline: String!
+  maxTokensPerUser: String!
   depositTokenAddress: String!
+  transactionHash: String!
+  blockNumber: BigInt!
+  entity: String!
 }
 
 type User @entity {
   id: ID!
-  daoAddress: Bytes! # address
+  daoAddress: String! # address
   daoName: String! # string
-  userAddress: Bytes! # address
-  tokenAddress: Bytes! # address
-  depositAmount: BigInt! # uint256
-  timeStamp: BigInt! # uint256
-  gtAmount: BigInt! # uint256
+  userAddress: String! # address
+  tokenAddress: String! # address
+  depositAmount: String! # uint256
+  timeStamp: String! # uint256
+  gtAmount: String! # uint256
   isAdmin: Boolean! # bool
+  isActive: Boolean!
+  transactionHash: String!
+  blockNumber: BigInt!
+  entity: String!
 }
 
-type Deposit @entity {
-  id: ID!
-  daoAddress: Bytes!
-  depositor: Bytes!
-  depositTokenAddress: Bytes!
-  amount: BigInt!
-  timeStamp: BigInt!
-  ownerFee: BigInt!
-  adminShare: BigInt!
-}
+# type Deposit @entity {
+#   id: ID!
+#   daoAddress: String!
+#   depositor: String!
+#   depositTokenAddress: String!
+#   amount: String!
+#   timeStamp: String!
+#   ownerFee: String!
+#   adminShare: String!
+# }

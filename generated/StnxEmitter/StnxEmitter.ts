@@ -235,20 +235,16 @@ export class CreateDaoErc20__Params {
     return this._event.parameters[14].value.toAddress();
   }
 
-  get lzImpl(): Address {
-    return this._event.parameters[15].value.toAddress();
-  }
-
   get isGovernanceActive(): boolean {
-    return this._event.parameters[16].value.toBoolean();
+    return this._event.parameters[15].value.toBoolean();
   }
 
   get isTransferable(): boolean {
-    return this._event.parameters[17].value.toBoolean();
+    return this._event.parameters[16].value.toBoolean();
   }
 
   get assetsStoredOnGnosis(): boolean {
-    return this._event.parameters[18].value.toBoolean();
+    return this._event.parameters[17].value.toBoolean();
   }
 }
 
@@ -325,20 +321,90 @@ export class CreateDaoErc721__Params {
     return this._event.parameters[14].value.toAddress();
   }
 
-  get lzImpl(): Address {
-    return this._event.parameters[15].value.toAddress();
-  }
-
   get isGovernanceActive(): boolean {
-    return this._event.parameters[16].value.toBoolean();
+    return this._event.parameters[15].value.toBoolean();
   }
 
   get isTransferable(): boolean {
-    return this._event.parameters[17].value.toBoolean();
+    return this._event.parameters[16].value.toBoolean();
   }
 
   get assetsStoredOnGnosis(): boolean {
-    return this._event.parameters[18].value.toBoolean();
+    return this._event.parameters[17].value.toBoolean();
+  }
+}
+
+export class DaoLegalFeesCollected extends ethereum.Event {
+  get params(): DaoLegalFeesCollected__Params {
+    return new DaoLegalFeesCollected__Params(this);
+  }
+}
+
+export class DaoLegalFeesCollected__Params {
+  _event: DaoLegalFeesCollected;
+
+  constructor(event: DaoLegalFeesCollected) {
+    this._event = event;
+  }
+
+  get _daoAddress(): Address {
+    return this._event.parameters[0].value.toAddress();
+  }
+
+  get _user(): Address {
+    return this._event.parameters[1].value.toAddress();
+  }
+
+  get _feeAmount(): BigInt {
+    return this._event.parameters[2].value.toBigInt();
+  }
+}
+
+export class DaoLegalPlanEnabled extends ethereum.Event {
+  get params(): DaoLegalPlanEnabled__Params {
+    return new DaoLegalPlanEnabled__Params(this);
+  }
+}
+
+export class DaoLegalPlanEnabled__Params {
+  _event: DaoLegalPlanEnabled;
+
+  constructor(event: DaoLegalPlanEnabled) {
+    this._event = event;
+  }
+
+  get _daoAddress(): Address {
+    return this._event.parameters[0].value.toAddress();
+  }
+
+  get _planId(): BigInt {
+    return this._event.parameters[1].value.toBigInt();
+  }
+}
+
+export class DaoPlatformFeesCollected extends ethereum.Event {
+  get params(): DaoPlatformFeesCollected__Params {
+    return new DaoPlatformFeesCollected__Params(this);
+  }
+}
+
+export class DaoPlatformFeesCollected__Params {
+  _event: DaoPlatformFeesCollected;
+
+  constructor(event: DaoPlatformFeesCollected) {
+    this._event = event;
+  }
+
+  get _daoAddress(): Address {
+    return this._event.parameters[0].value.toAddress();
+  }
+
+  get _user(): Address {
+    return this._event.parameters[1].value.toAddress();
+  }
+
+  get _feeAmount(): BigInt {
+    return this._event.parameters[2].value.toBigInt();
   }
 }
 
@@ -399,6 +465,10 @@ export class DeployRefundModule__Params {
 
   get _merkleRoot(): Bytes {
     return this._event.parameters[3].value.toBytes();
+  }
+
+  get _refundToken(): Address {
+    return this._event.parameters[4].value.toAddress();
   }
 }
 
@@ -699,8 +769,8 @@ export class RefundERC721DAO__Params {
     return this._event.parameters[3].value.toAddress();
   }
 
-  get _tokenId(): BigInt {
-    return this._event.parameters[4].value.toBigInt();
+  get _tokenId(): Array<BigInt> {
+    return this._event.parameters[4].value.toBigIntArray();
   }
 
   get _transferAmount(): BigInt {
@@ -1241,6 +1311,21 @@ export class StnxEmitter extends ethereum.SmartContract {
     let value = result.value;
     return ethereum.CallResult.fromValue(value[0].toBoolean());
   }
+
+  version(): string {
+    let result = super.call("version", "version():(string)", []);
+
+    return result[0].toString();
+  }
+
+  try_version(): ethereum.CallResult<string> {
+    let result = super.tryCall("version", "version():(string)", []);
+    if (result.reverted) {
+      return new ethereum.CallResult();
+    }
+    let value = result.value;
+    return ethereum.CallResult.fromValue(value[0].toString());
+  }
 }
 
 export class AirDropTokenCall extends ethereum.Call {
@@ -1604,20 +1689,16 @@ export class CreateDaoErc20Call__Inputs {
     return this._call.inputValues[14].value.toAddress();
   }
 
-  get lzImpl(): Address {
-    return this._call.inputValues[15].value.toAddress();
-  }
-
   get _isGovernanceActive(): boolean {
-    return this._call.inputValues[16].value.toBoolean();
+    return this._call.inputValues[15].value.toBoolean();
   }
 
   get isTransferable(): boolean {
-    return this._call.inputValues[17].value.toBoolean();
+    return this._call.inputValues[16].value.toBoolean();
   }
 
   get assetsStoredOnGnosis(): boolean {
-    return this._call.inputValues[18].value.toBoolean();
+    return this._call.inputValues[17].value.toBoolean();
   }
 }
 
@@ -1706,20 +1787,16 @@ export class CreateDaoErc721Call__Inputs {
     return this._call.inputValues[14].value.toAddress();
   }
 
-  get lzImpl(): Address {
-    return this._call.inputValues[15].value.toAddress();
-  }
-
   get _isGovernanceActive(): boolean {
-    return this._call.inputValues[16].value.toBoolean();
+    return this._call.inputValues[15].value.toBoolean();
   }
 
   get isTransferable(): boolean {
-    return this._call.inputValues[17].value.toBoolean();
+    return this._call.inputValues[16].value.toBoolean();
   }
 
   get assetsStoredOnGnosis(): boolean {
-    return this._call.inputValues[18].value.toBoolean();
+    return this._call.inputValues[17].value.toBoolean();
   }
 }
 
@@ -1727,6 +1804,116 @@ export class CreateDaoErc721Call__Outputs {
   _call: CreateDaoErc721Call;
 
   constructor(call: CreateDaoErc721Call) {
+    this._call = call;
+  }
+}
+
+export class DaoLegalFeesCollectedCall extends ethereum.Call {
+  get inputs(): DaoLegalFeesCollectedCall__Inputs {
+    return new DaoLegalFeesCollectedCall__Inputs(this);
+  }
+
+  get outputs(): DaoLegalFeesCollectedCall__Outputs {
+    return new DaoLegalFeesCollectedCall__Outputs(this);
+  }
+}
+
+export class DaoLegalFeesCollectedCall__Inputs {
+  _call: DaoLegalFeesCollectedCall;
+
+  constructor(call: DaoLegalFeesCollectedCall) {
+    this._call = call;
+  }
+
+  get _dao(): Address {
+    return this._call.inputValues[0].value.toAddress();
+  }
+
+  get _user(): Address {
+    return this._call.inputValues[1].value.toAddress();
+  }
+
+  get _feeAmount(): BigInt {
+    return this._call.inputValues[2].value.toBigInt();
+  }
+}
+
+export class DaoLegalFeesCollectedCall__Outputs {
+  _call: DaoLegalFeesCollectedCall;
+
+  constructor(call: DaoLegalFeesCollectedCall) {
+    this._call = call;
+  }
+}
+
+export class DaoLegalPlanEnabledCall extends ethereum.Call {
+  get inputs(): DaoLegalPlanEnabledCall__Inputs {
+    return new DaoLegalPlanEnabledCall__Inputs(this);
+  }
+
+  get outputs(): DaoLegalPlanEnabledCall__Outputs {
+    return new DaoLegalPlanEnabledCall__Outputs(this);
+  }
+}
+
+export class DaoLegalPlanEnabledCall__Inputs {
+  _call: DaoLegalPlanEnabledCall;
+
+  constructor(call: DaoLegalPlanEnabledCall) {
+    this._call = call;
+  }
+
+  get _dao(): Address {
+    return this._call.inputValues[0].value.toAddress();
+  }
+
+  get _planId(): BigInt {
+    return this._call.inputValues[1].value.toBigInt();
+  }
+}
+
+export class DaoLegalPlanEnabledCall__Outputs {
+  _call: DaoLegalPlanEnabledCall;
+
+  constructor(call: DaoLegalPlanEnabledCall) {
+    this._call = call;
+  }
+}
+
+export class DaoPlatformFeesCollectedCall extends ethereum.Call {
+  get inputs(): DaoPlatformFeesCollectedCall__Inputs {
+    return new DaoPlatformFeesCollectedCall__Inputs(this);
+  }
+
+  get outputs(): DaoPlatformFeesCollectedCall__Outputs {
+    return new DaoPlatformFeesCollectedCall__Outputs(this);
+  }
+}
+
+export class DaoPlatformFeesCollectedCall__Inputs {
+  _call: DaoPlatformFeesCollectedCall;
+
+  constructor(call: DaoPlatformFeesCollectedCall) {
+    this._call = call;
+  }
+
+  get _dao(): Address {
+    return this._call.inputValues[0].value.toAddress();
+  }
+
+  get _user(): Address {
+    return this._call.inputValues[1].value.toAddress();
+  }
+
+  get _feeAmount(): BigInt {
+    return this._call.inputValues[2].value.toBigInt();
+  }
+}
+
+export class DaoPlatformFeesCollectedCall__Outputs {
+  _call: DaoPlatformFeesCollectedCall;
+
+  constructor(call: DaoPlatformFeesCollectedCall) {
     this._call = call;
   }
 }
@@ -1800,6 +1987,10 @@ export class DeployRefundModuleCall__Inputs {
 
   get _merkleRoot(): Bytes {
     return this._call.inputValues[3].value.toBytes();
+  }
+
+  get _refundToken(): Address {
+    return this._call.inputValues[4].value.toAddress();
   }
 }
 
@@ -2208,8 +2399,8 @@ export class RefundERC721DAOCall__Inputs {
     return this._call.inputValues[3].value.toAddress();
   }
 
-  get _tokenId(): BigInt {
-    return this._call.inputValues[4].value.toBigInt();
+  get _tokenIds(): Array<BigInt> {
+    return this._call.inputValues[4].value.toBigIntArray();
   }
 
   get _transferAmount(): BigInt {
@@ -2445,6 +2636,36 @@ export class TransferGTCall__Outputs {
   _call: TransferGTCall;
 
   constructor(call: TransferGTCall) {
+    this._call = call;
+  }
+}
+
+export class UpdateContractVersionCall extends ethereum.Call {
+  get inputs(): UpdateContractVersionCall__Inputs {
+    return new UpdateContractVersionCall__Inputs(this);
+  }
+
+  get outputs(): UpdateContractVersionCall__Outputs {
+    return new UpdateContractVersionCall__Outputs(this);
+  }
+}
+
+export class UpdateContractVersionCall__Inputs {
+  _call: UpdateContractVersionCall;
+
+  constructor(call: UpdateContractVersionCall) {
+    this._call = call;
+  }
+
+  get _version(): string {
+    return this._call.inputValues[0].value.toString();
+  }
+}
+
+export class UpdateContractVersionCall__Outputs {
+  _call: UpdateContractVersionCall;
+
+  constructor(call: UpdateContractVersionCall) {
     this._call = call;
   }
 }
