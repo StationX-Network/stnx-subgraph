@@ -44,6 +44,7 @@ export function changeSigners(event: ChangedSignersEvent): void {
       }
 
       user.transactionHash = event.transaction.hash.toHexString();
+      user.blockNumber = event.block.number;
       user.save();
     }
   }

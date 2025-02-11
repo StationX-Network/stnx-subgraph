@@ -52,5 +52,7 @@ export function createNewUser(event: NewUserEvent): void {
   station.totalAmountRaised = BigInt.fromString(station.totalAmountRaised)
     .plus(event.params._depositTokenAmount)
     .toString();
+  station.transactionHash = event.transaction.hash.toHex();
+  station.blockNumber = event.block.number;
   station.save();
 }

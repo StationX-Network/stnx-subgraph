@@ -36,6 +36,7 @@ export function updateDistributionAmount(
     .div(BigInt.fromI32(10).pow(18))
     .toString();
   station.transactionHash = event.transaction.hash.toHex();
+  station.blockNumber = event.block.number;
 
   // Save the updated entity
   station.save();

@@ -21,5 +21,7 @@ export function startDeposit(event: StartDepositEvent): void {
   if (!station) return;
 
   station.depositDeadline = event.params.closeTime.toString();
+  station.blockNumber = event.block.number;
+  station.transactionHash = event.transaction.hash.toHexString();
   station.save();
 }
