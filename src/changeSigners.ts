@@ -39,6 +39,11 @@ export function changeSigners(event: ChangedSignersEvent): void {
     if (user) {
       if (BigInt.fromString(user.gtAmount) == BigInt.fromI32(0)) {
         user.isActive = false;
+
+        //decrease member count
+        station.membersCount = BigInt.fromString(station.membersCount)
+          .minus(BigInt.fromI32(1))
+          .toString();
       } else {
         user.isAdmin = false;
       }
@@ -46,6 +51,10 @@ export function changeSigners(event: ChangedSignersEvent): void {
       user.transactionHash = event.transaction.hash.toHexString();
       user.blockNumber = event.block.number;
       user.save();
+
+      station.transactionHash = event.transaction.hash.toHexString();
+      station.blockNumber = event.block.number;
+      station.save();
     }
   }
 }

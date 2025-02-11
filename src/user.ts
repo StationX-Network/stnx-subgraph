@@ -8,7 +8,7 @@ export function createNewUser(event: NewUserEvent): void {
   let id =
     event.params._depositor.toHex() + "-" + event.params._daoAddress.toHex();
   let user = User.load(id);
-  let isNewUser = !user;
+  const isNewUser = !user;
 
   let daoAddress = event.params._daoAddress.toHex();
   let station = Station.load(daoAddress);
@@ -26,6 +26,10 @@ export function createNewUser(event: NewUserEvent): void {
     user.isAdmin = event.params._isAdmin;
     user.daoName = station.name;
     user.isActive = true;
+
+    station.membersCount = BigInt.fromString(station.membersCount)
+      .plus(BigInt.fromI32(1))
+      .toString();
   } else {
     // Update the depositAmount field for the existing user entity
     user.depositAmount = BigInt.fromString(user.depositAmount)
@@ -35,6 +39,13 @@ export function createNewUser(event: NewUserEvent): void {
       .plus(event.params._gtToken)
       .toString();
     user.daoName = station.name;
+
+    if (user.isActive == false) {
+      station.membersCount = BigInt.fromString(station.membersCount)
+        .plus(BigInt.fromI32(1))
+        .toString();
+    }
+
     user.isActive = true;
   }
 
@@ -43,16 +54,9 @@ export function createNewUser(event: NewUserEvent): void {
   user.entity = ENTITY_USER;
   user.save();
 
-  // Update members count & totalAmountRaised in station
-  if (isNewUser)
-    station.membersCount = BigInt.fromString(station.membersCount)
-      .plus(BigInt.fromI32(1))
-      .toString();
-
   station.totalAmountRaised = BigInt.fromString(station.totalAmountRaised)
     .plus(event.params._depositTokenAmount)
     .toString();
-  station.transactionHash = event.transaction.hash.toHex();
   station.blockNumber = event.block.number;
   station.save();
 }
