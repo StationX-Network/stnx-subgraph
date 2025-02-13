@@ -6,8 +6,20 @@ import {
   CreateDaoErc721 as CreateDaoErc721Event,
 } from "../generated/StnxEmitter/StnxEmitter";
 import { ENTITY_STATION } from "./constants";
+import { EmitterAddresses } from "./constants/config";
 
 export function createErc20Dao(event: CreateDaoErc20Event): void {
+  // to handle bug: interchanged values in depositTokenAddress and emitterAddress
+  let depositTokenAddressUpdated = event.params.depositTokenAddress.toHexString();
+  if (
+    EmitterAddresses.some(
+      (emitter) =>
+        emitter.toLowerCase() === depositTokenAddressUpdated.toLowerCase()
+    )
+  ) {
+    depositTokenAddressUpdated = event.params.emitter.toHexString();
+  }
+
   let station = new Station(event.params.proxy.toHex());
   station.daoAddress = event.params.proxy.toHexString();
   station.gnosisAddress = event.params.gnosisAddress.toHexString();
@@ -35,8 +47,8 @@ export function createErc20Dao(event: CreateDaoErc20Event): void {
   station.maxDepositAmount = event.params.maxDeposit.toString();
   station.depositDeadline = event.params._days.toString();
   station.maxTokensPerUser = BigInt.fromI32(0).toString();
-  station.depositTokenAddress = event.params.depositTokenAddress
-    ? event.params.depositTokenAddress.toHex()
+  station.depositTokenAddress = depositTokenAddressUpdated
+    ? depositTokenAddressUpdated
     : "";
   station.transactionHash = event.transaction.hash.toHexString();
   station.blockNumber = event.block.number;
@@ -45,6 +57,17 @@ export function createErc20Dao(event: CreateDaoErc20Event): void {
 }
 
 export function createErc721Dao(event: CreateDaoErc721Event): void {
+  // to handle bug: interchanged values in depositTokenAddress and emitterAddress
+  let depositTokenAddressUpdated = event.params.depositTokenAddress.toHexString();
+  if (
+    EmitterAddresses.some(
+      (emitter) =>
+        emitter.toLowerCase() === depositTokenAddressUpdated.toLowerCase()
+    )
+  ) {
+    depositTokenAddressUpdated = event.params.emitter.toHexString();
+  }
+
   let station = new Station(event.params.proxy.toHex());
   station.daoAddress = event.params.proxy.toHexString();
   station.gnosisAddress = event.params.gnosisAddress.toHexString();
@@ -72,8 +95,8 @@ export function createErc721Dao(event: CreateDaoErc721Event): void {
   station.maxDepositAmount = BigInt.fromI32(0).toString();
   station.depositDeadline = event.params._days.toString();
   station.maxTokensPerUser = event.params.maxTokensPerUser.toString();
-  station.depositTokenAddress = event.params.depositTokenAddress
-    ? event.params.depositTokenAddress.toHex()
+  station.depositTokenAddress = depositTokenAddressUpdated
+    ? depositTokenAddressUpdated
     : "";
   station.transactionHash = event.transaction.hash.toHexString();
   station.blockNumber = event.block.number;
