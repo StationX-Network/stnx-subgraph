@@ -11,12 +11,19 @@ import { EmitterAddresses } from "./constants/config";
 export function createErc20Dao(event: CreateDaoErc20Event): void {
   // to handle bug: interchanged values in depositTokenAddress and emitterAddress
   let depositTokenAddressUpdated = event.params.depositTokenAddress.toHexString();
-  if (
-    EmitterAddresses.some(
-      (emitter) =>
-        emitter.toLowerCase() === depositTokenAddressUpdated.toLowerCase()
-    )
-  ) {
+  let isInterchanged = false;
+
+  for (let i = 0; i < EmitterAddresses.length; i++) {
+    if (
+      EmitterAddresses[i].toLowerCase() ===
+      depositTokenAddressUpdated.toLowerCase()
+    ) {
+      isInterchanged = true;
+      break;
+    }
+  }
+
+  if (isInterchanged) {
     depositTokenAddressUpdated = event.params.emitter.toHexString();
   }
 
@@ -59,12 +66,19 @@ export function createErc20Dao(event: CreateDaoErc20Event): void {
 export function createErc721Dao(event: CreateDaoErc721Event): void {
   // to handle bug: interchanged values in depositTokenAddress and emitterAddress
   let depositTokenAddressUpdated = event.params.depositTokenAddress.toHexString();
-  if (
-    EmitterAddresses.some(
-      (emitter) =>
-        emitter.toLowerCase() === depositTokenAddressUpdated.toLowerCase()
-    )
-  ) {
+  let isInterchanged = false;
+
+  for (let i = 0; i < EmitterAddresses.length; i++) {
+    if (
+      EmitterAddresses[i].toLowerCase() ===
+      depositTokenAddressUpdated.toLowerCase()
+    ) {
+      isInterchanged = true;
+      break;
+    }
+  }
+
+  if (isInterchanged) {
     depositTokenAddressUpdated = event.params.emitter.toHexString();
   }
 
