@@ -1,33 +1,58 @@
-// import { BigInt } from "@graphprotocol/graph-ts";
-// import { User } from "../generated/schema";
-// import {
-//   RefundERC721DAO as RefundERC721DAOEvent,
-//   RefundERC20DAO as RefundERC20DAOEvent,
-// } from "../generated/StnxEmitter/StnxEmitter";
+import { BigInt } from "@graphprotocol/graph-ts"
 
-// export function refundErc721(event: RefundERC721DAOEvent): void {
-//   let id = event.params._user.toHex() + "-" + event.params._daoAddress.toHex();
+import { Station, User } from "../generated/schema"
+import {
+  RefundERC20DAO as RefundERC20DAOEvent,
+  RefundERC721DAO as RefundERC721DAOEvent,
+} from "../generated/StnxEmitter/StnxEmitter"
 
-//   let user = User.load(id);
+export function refundErc721(event: RefundERC721DAOEvent): void {
+  let id = event.params._user.toHex() + "-" + event.params._daoAddress.toHex()
+  let user = User.load(id)
+  if (!user) return
 
-//   if (!user) return;
+  let tokenIdLength = event.params._tokenId ? event.params._tokenId.length : 0
+  const finalGtAmount = BigInt.fromString(user.gtAmount).minus(
+    BigInt.fromI32(tokenIdLength)
+  )
 
-//   // Ensure _tokenId exists and calculate its length properly
-//   let tokenIdLength = event.params._tokenId ? event.params._tokenId.length : 0;
+  if (finalGtAmount.le(BigInt.fromI32(0))) user.isActive = false
 
-//   // Safely subtract the calculated value
-//   user.gtAmount = user.gtAmount.minus(BigInt.fromI32(tokenIdLength));
+  user.gtAmount = finalGtAmount.toString()
+  user.save()
 
-//   user.save();
-// }
+  const station = Station.load(event.params._daoAddress.toHex())
+  if (!station) return
 
-// export function refundErc20(event: RefundERC20DAOEvent): void {
-//   let id = event.params._user.toHex() + "-" + event.params._daoAddress.toHex();
+  if (finalGtAmount.le(BigInt.fromI32(0))) {
+    station.membersCount = BigInt.fromString(station.membersCount)
+      .minus(BigInt.fromI32(1))
+      .toString()
+    station.save()
+  }
+}
 
-//   let user = User.load(id);
+export function refundErc20(event: RefundERC20DAOEvent): void {
+  let id = event.params._user.toHex() + "-" + event.params._daoAddress.toHex()
+  let user = User.load(id)
+  if (!user) return
 
-//   if (!user) return;
+  const finalGtAmount = BigInt.fromString(user.gtAmount).minus(
+    event.params._burnAmount
+  )
 
-//   user.gtAmount = user.gtAmount.minus(event.params._burnAmount);
-//   user.save();
-// }
+  if (finalGtAmount.le(BigInt.fromI32(0))) user.isActive = false
+
+  user.gtAmount = finalGtAmount.toString()
+  user.save()
+
+  const station = Station.load(event.params._daoAddress.toHex())
+  if (!station) return
+
+  if (finalGtAmount.le(BigInt.fromI32(0))) {
+    station.membersCount = BigInt.fromString(station.membersCount)
+      .minus(BigInt.fromI32(1))
+      .toString()
+    station.save()
+  }
+}

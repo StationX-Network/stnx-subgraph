@@ -41,6 +41,7 @@ type User @entity {
   transactionHash: String!
   blockNumber: BigInt!
   entity: String!
+  # investedAmount: String!
 }
 
 # type Deposit @entity {
