@@ -4,10 +4,10 @@ schema:
 dataSources:
   - kind: ethereum
     name: StnxEmitter
-    network: arbitrum-one
+    network: monad-testnet
     source:
-      address: "0x6e7AbCFB6e872C6b607015e65d86BAf8698CE90d"
-      startBlock: 189898620
+      address: "0xA3A575cb516C3C888a9926fce7FA1de96aba868c"
+      startBlock: 3960712
       abi: StnxEmitter
     mapping:
       kind: ethereum/events
@@ -18,7 +18,7 @@ dataSources:
         - User
       abis:
         - name: StnxEmitter
-          file: ./abis/StnxEmitter-base.json
+          file: ./abis/StnxEmitter-monad.json
       eventHandlers:
         # - event: Deposited(indexed address,indexed address,indexed address,uint256,uint256,uint256,uint256)
         #   handler: handleDeposit

@@ -4,10 +4,10 @@ schema:
 dataSources:
   - kind: ethereum
     name: StnxEmitter
-    network: arbitrum-one
+    network: berachain-bartio
     source:
-      address: "0x6e7AbCFB6e872C6b607015e65d86BAf8698CE90d"
-      startBlock: 189898620
+      address: "0x7E905071FC559d196df6Db0C60fc6E073F345BCC"
+      startBlock: 341012
       abi: StnxEmitter
     mapping:
       kind: ethereum/events
@@ -18,13 +18,13 @@ dataSources:
         - User
       abis:
         - name: StnxEmitter
-          file: ./abis/StnxEmitter-base.json
+          file: ./abis/StnxEmitter-bera-bartio.json
       eventHandlers:
         # - event: Deposited(indexed address,indexed address,indexed address,uint256,uint256,uint256,uint256)
         #   handler: handleDeposit
-        - event: CreateDaoErc20(indexed address,indexed address,string,string,uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint256,address,address,address,bool,bool,bool)
+        - event: CreateDaoErc20(indexed address,indexed address,string,string,uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint256,address,address,address,address,bool,bool,bool)
           handler: handleCreateDaoErc20
-        - event: CreateDaoErc721(indexed address,indexed address,string,string,string,uint256,uint256,uint256,uint256,uint256,uint256,uint256,address,address,address,bool,bool,bool)
+        - event: CreateDaoErc721(indexed address,indexed address,string,string,string,uint256,uint256,uint256,uint256,uint256,uint256,uint256,address,address,address,address,bool,bool,bool)
           handler: handleCreateDaoErc721
         - event: NewUser(indexed address,indexed address,indexed address,uint256,uint256,uint256,bool)
           handler: handleNewUser
