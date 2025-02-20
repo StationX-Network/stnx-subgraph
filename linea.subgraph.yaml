@@ -34,10 +34,10 @@ dataSources:
           handler: handleMinMaxDepositAmt
         - event: UpdatePricePerToken(indexed address,uint256)
           handler: handlePricePerToken
-        # - event: RefundERC20DAO(address,address,address,address,uint256,uint256)
-        #   handler: handleRefundERC20DAO
-        # - event: RefundERC721DAO(address,address,address,address,uint256[],uint256)
-        #   handler: handleRefundERC721DAO
+        - event: RefundERC20DAO(address,address,address,address,uint256,uint256)
+          handler: handleRefundERC20DAO
+        - event: RefundERC721DAO(address,address,address,address,uint256[],uint256)
+          handler: handleRefundERC721DAO
         - event: StartDeposit(indexed address,uint256,uint256)
           handler: handleStartDeposit
         - event: ChangedSigners(indexed address,indexed address,indexed bool)
